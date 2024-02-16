@@ -5,6 +5,7 @@ import SignUp from '../components/register';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
+import ProductCard from "../components/productCard";
 // import Card3d from './3dcard';
 
 
@@ -28,14 +29,24 @@ const LoginRegister = () => {
 
 
     return (
+        
         <div className='loginregisterouter'>
+            <div className="backgroundUltra">
+                <div className="circle1">
+
+                </div>
+                <div className="circle2">
+                    
+                </div>
+
+            </div>
 
                      <div className="threePhoto">
                         <div className="photo1">
-                            0
+                            
                         </div>
                         <div className="photo2">
-                            2
+                    
                         </div>
                         <div className="photo3">
                             1

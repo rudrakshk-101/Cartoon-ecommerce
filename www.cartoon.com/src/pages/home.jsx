@@ -1,9 +1,18 @@
 import React from 'react';
 import ProductCard from '../components/productCard'
-
+import '../styles/home.css'
 const Home = ()=>{
     return(
         <div className='productCardContainer'>
+            <div className="backgroundUltra">
+                <div className="circle1">
+
+                </div>
+                <div className="circle2">
+                    
+                </div>
+
+            </div>
             <ProductCard />
             <ProductCard />
             <ProductCard />

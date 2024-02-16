@@ -62,6 +62,8 @@ const ProductCard = () => {
   return (
     <div ref={cardRef} className="card">
       <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/87600cfa-b9c3-4901-bec2-7faa0ddffec2/air-max-270-shoes-rtZHHP.png" alt="" />
+      <div className='imageCentre'>
+
 
 
         <div className="cardTitle">Home Grocery Needs</div>
@@ -71,6 +73,7 @@ const ProductCard = () => {
         </div>
         <div className="reviewStars">
         ⭐ 5.0  
+        </div>
         </div>
         
 
