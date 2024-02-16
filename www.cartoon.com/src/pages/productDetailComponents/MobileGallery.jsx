@@ -10,7 +10,7 @@ import PreviousIcon from "../Icons/PreviousIcon";
 
 const IMAGES = [prod1, prod2, prod3, prod4];
 
-const MobileGallery = () => {
+const MobileGallery = ({image}) => {
   const [currentMobileImage, setCurrentMobileImage] = useState(prod1);
   const [mobileImageIndex, setMobileImageIndex] = useState(1);
 
@@ -48,7 +48,7 @@ const MobileGallery = () => {
       >
         <PreviousIcon />
       </IconButton>
-      <img src={currentMobileImage} alt="featured-product" />
+      <img src={image} alt="featured-product" />
       <IconButton
         className="icon-button-next"
         disableRipple

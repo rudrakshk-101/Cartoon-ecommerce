@@ -14,9 +14,10 @@ import thumb4 from "../Pictures/image-product-4-thumbnail.jpg";
 const IMAGES = [prod1, prod2, prod3, prod4];
 const THUMBS = [thumb1, thumb2, thumb3, thumb4];
 
-const Gallery = () => {
+const Gallery = ({image}) => {
   const [currentImage, setCurrentImage] = useState(prod1);
   const [currentPassedImage, setCurrentPassedImage] = useState(prod1);
+  // console.log(image);
 
   const [open, setOpen] = useState(false);
   const handleClick = (index) => {
@@ -42,7 +43,7 @@ const Gallery = () => {
     <section className="gallery-holder hide-in-mobile">
       <section className="gallery">
         <div className="image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c25lYWtlcnxlbnwwfHwwfHx8MA%3D%3D" alt="product-1" onClick={handleToggle} />
+          <img src={image} alt="product-1" onClick={handleToggle} />
         </div>
         {/* <BackdropGallery
           handleClose={handleClose}

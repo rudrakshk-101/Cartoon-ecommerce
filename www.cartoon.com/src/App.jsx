@@ -18,7 +18,7 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   
-  const visibleRoutes = ['/addProduct','/','/cart'];
+  const visibleRoutes = ['/addProduct','/'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
 
   return (
@@ -35,7 +35,7 @@ function App() {
             <Routes>
                 <Route index element={<Home/>} />
                 <Route path='/auth' element={<UserLoginRegister/>} />
-                <Route path='/productDetails' element={<ProductDetail />} />
+                <Route path='/product/:productId' element={<ProductDetail />} />
                 <Route path='/checkout' element={<Checkout/>} />
                 <Route path='/cart' element={<CartPage />} />
             </Routes>

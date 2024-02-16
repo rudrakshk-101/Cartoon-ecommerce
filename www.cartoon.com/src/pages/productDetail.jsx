@@ -1,13 +1,30 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import '../styles/productDetail.css';
 import Gallery from "./productDetailComponents/Gallery";
 import Description from "./productDetailComponents/Description";
 import MobileGallery from "./productDetailComponents/MobileGallery";
+import {useParams} from 'react-router-dom';
 
 function ProductDetail() {
     const [quant, setQuant] = useState(0);
-    // const [orderedQuant, setOrderedQuant] = useState(0);
+    const {productId} = useParams();
   
+    const [array,setArray] = useState({});
+
+    let xyz = async() => {
+      const response = await fetch('http://localhost:4500/api/product/findByProductId',{
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({productId})
+      });
+      const data = await response.json();
+      setArray(data[0]);
+    }
+
+    useEffect(() => {
+      xyz();
+    },[])
+
     const addQuant = () => {
       setQuant(quant + 1);
     };
@@ -15,22 +32,20 @@ function ProductDetail() {
     const removeQuant = () => {
       setQuant(quant - 1);
     };
-  
-    // const resetQuant = () => {
-    //   setQuant(0);
-    //   setOrderedQuant(0);
-    // };
     return (
       <main className="App">
           {/* <Navbar onOrderedQuant={orderedQuant} onReset={resetQuant} /> */}
           <section className="core">
-            <Gallery />
-            <MobileGallery />
+            <Gallery image={array.image} />
+            <MobileGallery image={array.image} />
             <Description
               onQuant={quant}
               onAdd={addQuant}
               onRemove={removeQuant}
-            //   onSetOrderedQuant={setOrderedQuant}
+              title={array.title}
+              description={array.description} 
+              price={array.price}
+              discount={array.discount}
             />
           </section>
       </main>

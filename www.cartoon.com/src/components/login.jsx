@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -32,6 +33,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const navigateTo = useNavigate();
   const [email,setGmail]=useState('');
   const [password,setPassword]=useState('');
   
@@ -47,13 +49,11 @@ export default function SignIn() {
 
 let data = await response.json();
 if(data.token){
-    alert('logged in successfully');
-
+  navigateTo('/');
+  
 }
 else{
-    alert('invalid credentials');
-    console.log(data.message);
-    alert("login done")
+  alert('logged in successfully');
 }
  }
   return (

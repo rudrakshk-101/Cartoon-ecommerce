@@ -2,22 +2,20 @@ import React from "react";
 import CartIcon from "../Icons/CartIcon";
 import QuantityButton from "./QuantityButton";
 
-const Description = ({ onQuant, onAdd, onRemove}) => {
+const Description = ({ onQuant, onAdd, onRemove,title , description, price, discount}) => {
   return (
     <section className="description">
       <p className="pre">Cartoon.com</p>
-      <h1>"fall" limited edition sneakers</h1>
+      <h1>{title}</h1>
       <p className="desc">
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they’ll withstand everything the
-        weather can offer
+        {description}
       </p>
       <div className="price">
         <div className="main-tag">
-          <p>₹125000.00</p>
-          <p>50%</p>
+          <p>₹{price-(discount/100)*price}</p>
+          <p>-{discount}%</p>
         </div>
-        <s>₹250000.00</s>
+        <s>₹{price}</s>
       </div>
       <div className="buttons">
         <QuantityButton onQuant={onQuant} onRemove={onRemove} onAdd={onAdd} />
