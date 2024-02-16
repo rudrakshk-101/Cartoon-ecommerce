@@ -22,7 +22,6 @@ function App() {
   const isRouteVisible = (route) => visibleRoutes.includes(route);
 
   return (
-<<<<<<< Updated upstream
     <BrowserRouter>
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -46,43 +45,6 @@ function App() {
     </ColorModeContext.Provider>
     </BrowserRouter>
   );
-=======
-    <>
-     <div className='backgroundUltra'>
-      <div className='circle1'>
-
-      </div >
-      <div className='circle2'>
-
-      </div>
-      
-
-    </div> 
-    <div className="navbar">
-      navbar
-    </div>
-      <div className="sidebar">
-        <img src={Logo} alt="" />
-        <div className="sidebarList">
-          {/* <Link to="/" ><h1>Home</h1></Link> */}
-          <h1>cart</h1>
-          <h1>logout</h1>
-        </div>
-      </div>
-      <div className="renderArea">
-      <BrowserRouter>
-        <Routes>
-          <Route path='/'  element={<Home />}/>
-          <Route path='/cart' element={<CartPage />} />
-          <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/payment' element={<PaymentsPage />} />
-          <Route path='/auth' element={<LoginRegister />} />
-        </Routes>
-      </BrowserRouter>
-      </div>
-    </>
-  )
->>>>>>> Stashed changes
 }
 
 export default App;
