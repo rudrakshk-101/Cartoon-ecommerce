@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import '../styles/productDetail.css';
 import Gallery from "./productDetailComponents/Gallery";
 import Description from "./productDetailComponents/Description";
-// import MobileGallery from "./productDetailComponents/MobileGallery";
+import MobileGallery from "./productDetailComponents/MobileGallery";
 
 function ProductDetail() {
     const [quant, setQuant] = useState(0);

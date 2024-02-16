@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import ProductCard from '../components/productCard'
 
 const Home = ()=>{
     return(
-        <div className="productCardContainer">
+        <div className='productCardContainer'>
             <ProductCard />
             <ProductCard />
             <ProductCard />
@@ -14,20 +14,7 @@ const Home = ()=>{
             <ProductCard />
             <ProductCard />
             <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <h1 className='recommendedH1'>Recommended for you</h1>
             <ProductCard />
             <ProductCard />
             <ProductCard />
