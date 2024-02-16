@@ -2,17 +2,17 @@ import React from "react";
 import CartIcon from "../Icons/CartIcon";
 import QuantityButton from "./QuantityButton";
 
-const Description = ({ onQuant, onAdd, onRemove,title , description, price, discount}) => {
+const Description = ({ onQuant, onAdd, onRemove,title , description, price, discount,brand}) => {
   return (
     <section className="description">
-      <p className="pre">Cartoon.com</p>
+      <p className="pre">{brand}</p>
       <h1>{title}</h1>
       <p className="desc">
         {description}
       </p>
       <div className="price">
         <div className="main-tag">
-          <p>₹{price-(discount/100)*price}</p>
+          <p>₹{Math.floor(price-(discount/100*price))}</p>
           <p>-{discount}%</p>
         </div>
         <s>₹{price}</s>

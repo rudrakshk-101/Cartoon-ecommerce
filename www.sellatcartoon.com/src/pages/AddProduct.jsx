@@ -1,6 +1,4 @@
 import { Box, Button, TextField } from "@mui/material";
-import { Formik } from "formik";
-import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../components/Header";
 import InputLabel from '@mui/material/InputLabel';
@@ -15,54 +13,30 @@ const AddProduct = () => {
   let abcd = (values) => {}
   const [snack,setSnack] = useState(false);
 
-  const handleFormSubmit =  async() => {
+  const handleFormSubmit = async (e) => {
+  
+    // Prevent double submission
+    if (snack) return;
+  
     setSnack(true);
-    const response = await fetch('http://localhost:4500/api/product/addProduct',{
-      method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        title,brand,image,description,price,discount,inventory,category,keywords,
-        vendorId: localStorage.getItem('vendorId')
-      })
-    });
-    const data = await response.json();
-    setCategory('');
-    setTitle('');
-    setPrice('');
-    setImage('');
-    setDiscount('');
-    setBrand('');
-    setInventory('');
-    setKeywords('');
-    setDescription('');
-  };
-
-
-  const handleSubmit = async (values, { resetForm }) => {
-    setSnack(true);
-    const response = await fetch('http://localhost:4500/api/product/addProduct',{
-      method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        title,brand,image,description,price,discount,inventory,category,keywords,
-        vendorId: localStorage.getItem('vendorId')
-      })
-    });
-    const data = await response.json();
-
-    // Reset form values after successful submission
-    resetForm();
-
-    // Reset individual state values if needed
-    setCategory('');
-    setTitle('');
-    setPrice('');
-    setImage('');
-    setDiscount('');
-    setBrand('');
-    setInventory('');
-    setKeywords('');
-    setDescription('');
+    try {
+      const response = await fetch('http://localhost:4500/api/product/addProduct',{
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          title,brand,image,description,price,discount,inventory,category,keywords,
+          vendorId: localStorage.getItem('vendorId')
+        })
+      });
+      const data = await response.json();
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error, e.g., display an error message
+    } finally {
+      // Reset snack state after form submission is complete
+      setSnack(false);
+    }
   };
 
 
@@ -104,20 +78,7 @@ const AddProduct = () => {
     <Box m="20px">
       <Header title="ADD NEW PRODUCT" subtitle="Add your product" />
       {snack ? <ProdcutSnackbar snack={snack} setSnack={setSnack}/> : <></>}
-      <Formik
-        initialValues={initialValues}
-        validationSchema={checkoutSchema}
-        onSubmit={handleSubmit}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit,
-        }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleFormSubmit}>
             <Box
               display="grid"
               gap="30px"
@@ -132,7 +93,6 @@ const AddProduct = () => {
                 color="secondary"
                 type="text"
                 label="Title"
-                onBlur={handleBlur}
                 onChange={handleTitleChange}
                 value={title}
                 name="title"
@@ -144,12 +104,9 @@ const AddProduct = () => {
                 color="secondary"
                 type="text"
                 label="Price (Rs.)"
-                onBlur={handleBlur}
                 onChange={handlePriceChange}
                 value={price}
                 name="price"
-                error={!!touched.price && !!errors.price}
-                helperText={touched.price && errors.price}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -158,12 +115,9 @@ const AddProduct = () => {
                 color="secondary"
                 type="text"
                 label="Image Link"
-                onBlur={handleBlur}
                 onChange={handleImageChange}
                 value={image}
                 name="email"
-                error={!!touched.image && !!errors.image}
-                helperText={touched.image && errors.image}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
@@ -172,12 +126,9 @@ const AddProduct = () => {
                 color="secondary"
                 type="text"
                 label="Discount (%)"
-                onBlur={handleBlur}
                 onChange={handleDiscountChange}
                 value={discount}
                 name="address1"
-                error={!!touched.discount && !!errors.discount}
-                helperText={touched.discount && errors.discount}
                 sx={{ gridColumn: "span 1" }}
               />
              <FormControl color="secondary" variant="standard" sx={{  minWidth: 120 }}>
@@ -201,7 +152,6 @@ const AddProduct = () => {
                 color="secondary"
                 type="text"
                 label="Brand"
-                onBlur={handleBlur}
                 onChange={handleBrandChange}
                 value={brand}
                 name="brand"
@@ -213,12 +163,9 @@ const AddProduct = () => {
                 color="secondary"
                 type="text"
                 label="Inventory"
-                onBlur={handleBlur}
                 onChange={handleInventoryChange}
-                value={values.inventory}
+                value={inventory}
                 name="brand"
-                error={!!touched.inventory && !!errors.inventory}
-                helperText={touched.inventory && errors.inventory}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -227,12 +174,9 @@ const AddProduct = () => {
                 color="secondary"
                 type="text"
                 label="Keywords   ( , seperated)"
-                onBlur={handleBlur}
                 onChange={handleKeywordsChange}
                 value={keywords}
                 name="keywords"
-                error={!!touched.keywords && !!errors.keywords}
-                helperText={touched.keywords && errors.keywords}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -243,12 +187,9 @@ const AddProduct = () => {
                 label="Description"
                 multiline
                 maxRows={6}
-                onBlur={handleBlur}
                 onChange={handleDescriptionChange}
                 value={description}
                 name="lastName"
-                error={!!touched.description && !!errors.description} 
-                helperText={touched.description && errors.description}
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
@@ -258,46 +199,8 @@ const AddProduct = () => {
               </Button>
             </Box>
           </form>
-        )}
-      </Formik>
     </Box>
   );
 };
 
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0  {2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-
-// const checkoutSchema = yup.object().shape({
-//   firstName: yup.string().required("required"),
-//   lastName: yup.string().required("required"),
-//   email: yup.string().email("invalid email").required("required"),
-//   contact: yup
-//     .string()
-//     .matches(phoneRegExp, "Phone number is not valid")
-//     .required("required"),
-//   address1: yup.string().required("required"),
-//   address2: yup.string().required("required"),
-// });
-const checkoutSchema = yup.object().shape({
- 
-});
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  contact: "",
-  address1: "",
-  address2: "",
-};
-const initialValues2 = {
-  title: "",
-  description: "",
-  image: "",
-  price: 0,
-  discount: 0,
-  brand:"",
-  inventory: 0,
-  keywords: "",
-}
-
-export default AddProduct;
+export default AddProduct;  

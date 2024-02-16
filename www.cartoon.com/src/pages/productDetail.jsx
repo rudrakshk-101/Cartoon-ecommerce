@@ -45,6 +45,7 @@ function ProductDetail() {
               onAdd={addQuant}
               onRemove={removeQuant}
               title={array.title}
+              brand={array.brand}
               description={array.description} 
               price={array.price}
               discount={array.discount}

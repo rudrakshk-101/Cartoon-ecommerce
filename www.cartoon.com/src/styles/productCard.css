@@ -13,8 +13,8 @@
     font-weight: bold;
     padding: 1em;
     text-align: right;
-    color: #e5e5e5 !important;
-    
+    color: lemonchiffon !important;
+    font-size: large;
     width:  200px;
     height: 300px;
     box-shadow: 
@@ -36,8 +36,16 @@
     transform: rotate3d(0);
     z-index: 1;
     margin: 20px;
+<<<<<<< HEAD
     /* background-color: #e5e5e5; */
     background-color: #1f2041;
+=======
+    background-color: #1f2041;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+>>>>>>> c067a63a05e3dc718d90213682eaf227e7cf4795
   }
   
   .card:hover {
@@ -89,9 +97,13 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 85vw;
-    padding-left: 4vw;
+    padding-left: 2vw;
     padding-top: 2vh;
+<<<<<<< HEAD
     /* background-color: orange; */
+=======
+    margin-top: 7vh;
+>>>>>>> c067a63a05e3dc718d90213682eaf227e7cf4795
   }
 
   .card img{
@@ -99,7 +111,11 @@
     height: 150px;
     position: relative;
     top: -2%;
-    left: -6%;
+    /* left: -6%; */
+  }
+
+  .imageCentre{
+    width: 100%;
   }
 
   .reviewStars{
