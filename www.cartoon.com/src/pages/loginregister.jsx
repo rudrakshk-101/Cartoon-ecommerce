@@ -30,7 +30,7 @@ const LoginRegister = () => {
     return (
         <div className='loginregisterouter'>
 
-                    {/* <div className="threePhoto">
+                     <div className="threePhoto">
                         <div className="photo1">
                             0
                         </div>
@@ -40,7 +40,7 @@ const LoginRegister = () => {
                         <div className="photo3">
                             1
                         </div>
-                    </div> */}
+                    </div> 
 
 
 

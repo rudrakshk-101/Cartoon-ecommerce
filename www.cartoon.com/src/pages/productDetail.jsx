@@ -12,13 +12,15 @@ function ProductDetail() {
     const [array,setArray] = useState({});
 
     let xyz = async() => {
+      console.log(productId);
       const response = await fetch('http://localhost:4500/api/product/findByProductId',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({productId})
       });
       const data = await response.json();
-      setArray(data[0]);
+      console.log(data);
+      setArray(data);
     }
 
     useEffect(() => {
