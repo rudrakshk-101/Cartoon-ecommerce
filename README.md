@@ -8,7 +8,7 @@ Welcome to Cartoon E-commerce, an innovative web application that combines the c
   - www.cartoon.com
   - User registration and login using JWT and session management
   - Cart, checkout, and order tracking functionalities
-  - Google Auth integration for signup and signin
+  - Google Auth integration for signup and sign-in
 
 - **Vendor Functionalities:**
   - www.sellatcartoon.com
@@ -27,19 +27,21 @@ Welcome to Cartoon E-commerce, an innovative web application that combines the c
 - **Recommendation System:**
   - Collaborative filtering-based recommendation system
   - ML model trained on more than 11 lakh user ratings
-  - Flask API in ml.api folder to integrate the trained model with the frontend for personalized product recommendations
+  - Flask API in ml.api folder to integrate the trained model with the front-end for personalized product recommendations
 
 ## Installation
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/Cartoon-ecommerce.git
+   git clone https://github.com/Aayush-Joshi-01/Cartoon-ecommerce.git
    ```
 
 2. **Install Dependencies:**
    ```bash
    cd Cartoon-ecommerce
+   cd www.cartoon.com
    npm install # Install frontend dependencies
-   cd backend
+   cd ..
+   cd www.sellatcaroon.com
    npm install # Install backend dependencies
    ```
 
@@ -50,10 +52,12 @@ Welcome to Cartoon E-commerce, an innovative web application that combines the c
    ```bash
    # Start frontend
    cd Cartoon-ecommerce
+   cd www.cartoon.com
    npm start
 
    # Start backend
-   cd backend
+   cd Cartoon-ecommerce
+   cd www.sellatcaroon.com
    npm start
    ```
 
@@ -62,5 +66,3 @@ Feel free to contribute to the project by forking the repository and submitting 
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
-
-Thank you for choosing Cartoon E-commerce! Happy shopping!
