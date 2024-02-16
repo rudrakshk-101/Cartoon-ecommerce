@@ -36,6 +36,36 @@ const AddProduct = () => {
     setKeywords('');
     setDescription('');
   };
+
+
+  const handleSubmit = async (values, { resetForm }) => {
+    setSnack(true);
+    const response = await fetch('http://localhost:4500/api/product/addProduct',{
+      method: 'POST',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        title,brand,image,description,price,discount,inventory,category,keywords,
+        vendorId: localStorage.getItem('vendorId')
+      })
+    });
+    const data = await response.json();
+
+    // Reset form values after successful submission
+    resetForm();
+
+    // Reset individual state values if needed
+    setCategory('');
+    setTitle('');
+    setPrice('');
+    setImage('');
+    setDiscount('');
+    setBrand('');
+    setInventory('');
+    setKeywords('');
+    setDescription('');
+  };
+
+
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [category,setCategory] = useState('');
   const [title,setTitle] = useState('');
@@ -75,9 +105,9 @@ const AddProduct = () => {
       <Header title="ADD NEW PRODUCT" subtitle="Add your product" />
       {snack ? <ProdcutSnackbar snack={snack} setSnack={setSnack}/> : <></>}
       <Formik
-        onSubmit={handleFormSubmit}
         initialValues={initialValues}
         validationSchema={checkoutSchema}
+        onSubmit={handleSubmit}
       >
         {({
           values,
