@@ -1,18 +1,21 @@
-import React from "react";
-import '../../styles/loginRegister.css';
-import SignIn from '../customer/signinMui';
-import SignUp from '../customer/SignupMui';
+import React , {useState} from "react";
+import '../styles/loginregister.css';
+import SignIn from '../components/login';
+import SignUp from '../components/register';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
-import Card3d from './3dcard';
+// import Card3d from './3dcard';
 
-const UserLoginRegister = () => {
+
+const LoginRegister = () => {
     const [isLoginMode, setIsLoginMode] = useState(true);
 
     const toggleMode = () => {
         setIsLoginMode(prevMode => !prevMode);
     };
+
+    // colored button mui
     const ColorButton = styled(Button)(({ theme }) => ({
         color: theme.palette.getContrastText(purple[500]),
         backgroundColor: purple[500],
@@ -20,17 +23,14 @@ const UserLoginRegister = () => {
           backgroundColor: purple[700],
         },
       }));
-const LoginRegister = ()=>{
-    return(
-<<<<<<< HEAD
-        <div className='loginregisterouter'>
-=======
-        <h1>login register</h1>
-    )
-}
->>>>>>> e0a608608539d83b1f66154329eda60709ee22c2
 
-                    <div className="threePhoto">
+
+
+
+    return (
+        <div className='loginregisterouter'>
+
+                    {/* <div className="threePhoto">
                         <div className="photo1">
                             0
                         </div>
@@ -40,7 +40,10 @@ const LoginRegister = ()=>{
                         <div className="photo3">
                             1
                         </div>
-                    </div>
+                    </div> */}
+
+
+
             <div className="section over-hide">
                 <div className={`container ${isLoginMode ? 'show-login' : 'show-register'}`}>
                     <div className="row full-height justify-content-center">
@@ -48,6 +51,9 @@ const LoginRegister = ()=>{
                             <div className="section text-center py-5 py-md-0">
                             <div className="buttonContainer">
                                 <p className="butt">Already have an account? </p>
+                            {/* <ColorButton onclick={toggleMode} className='toggle-button' variant="contained">
+                                    {isLoginMode ? 'Register' : 'Login'}
+                                    </ColorButton> */}
                                     <button onClick={toggleMode} className='toggle-button'>{isLoginMode ? 'Register' : 'Login'}</button>
                             </div>
                                 <div className="card-3d-wrap mx-auto">
@@ -72,4 +78,5 @@ const LoginRegister = ()=>{
         </div>
     );
 }
+
 export default LoginRegister;

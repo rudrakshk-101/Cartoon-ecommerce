@@ -13,6 +13,7 @@ function App() {
 
   return (
     <>
+<<<<<<< Updated upstream
      <div className='backgroundUltra'>
       <div className='circle1'>
 
@@ -34,6 +35,19 @@ function App() {
           <h1>logout</h1>
         </div>
       </div>
+=======
+    {/* <div className="navbar">
+      navbar
+    </div>
+      <div className="sidebar">
+        <img src="" alt="" />
+        <ul>
+          <li>Home</li>
+          <li>cart</li>
+          <li>logout</li>
+        </ul>
+      </div> */}
+>>>>>>> Stashed changes
       <div className="renderArea">
       <BrowserRouter>
         <Routes>
@@ -50,3 +64,22 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

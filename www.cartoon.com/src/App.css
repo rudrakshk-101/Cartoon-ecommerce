@@ -49,8 +49,8 @@
 }
 
 .renderArea{
-  width: 84vw;
-  height: 89vh;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   bottom: 1vh;
   right: 1vw;
