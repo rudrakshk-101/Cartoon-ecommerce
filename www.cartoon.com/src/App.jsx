@@ -1,7 +1,11 @@
 import { useState } from 'react'
-import {BrowserRouter, Router , Route} from 'react-router-dom';
-import './App.css'
+import {BrowserRouter, Routes , Route} from 'react-router-dom';
+// import './App.css'
 import CartPage from './pages/cartPage';
+import Home from './pages/home';
+import LoginRegister from './pages/loginregister';
+import PaymentsPage from './pages/paymentsPage';
+import CheckoutPage from './pages/checkoutPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,9 +13,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Route>
-          <Route index  Component={<Home />}/>
-        </Route>
+        <Routes>
+          <Route path='/'  Component={<Home />}/>
+          <Route path='/cart' Component={<CartPage />} />
+          <Route path='/checkout' Component={<CheckoutPage />} />
+          <Route path='/payment' Component={<PaymentsPage />} />
+          <Route path='/auth' Component={<LoginRegister />} />
+        </Routes>
       </BrowserRouter>
     </>
   )
