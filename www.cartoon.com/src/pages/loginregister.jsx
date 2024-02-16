@@ -2,7 +2,7 @@ import React from "react";
 
 const LoginRegister = ()=>{
     return(
-        <h1>Cart Page</h1>
+        <h1>login register</h1>
     )
 }
 
