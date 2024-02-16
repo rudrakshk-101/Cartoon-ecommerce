@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import '../styles/productCard.css';
 
 
-const ProductCard = () => {
+
+const ProductCard = (props) => {
   const cardRef = useRef(null); 
   useEffect(() => {
     const $card = cardRef.current;
@@ -18,25 +19,25 @@ const ProductCard = () => {
         y: topY - bounds.height / 2
       };
       const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
-
+      
       $card.style.transform = `
-        scale3d(1.07, 1.07, 1.07)
-        rotate3d(
-          ${center.y / 100},
-          ${-center.x / 100},
-          0,
-          ${Math.log(distance) * 2}deg
+      scale3d(1.07, 1.07, 1.07)
+      rotate3d(
+        ${center.y / 100},
+        ${-center.x / 100},
+        0,
+        ${Math.log(distance) * 2}deg
         )
-      `;
-
-      $card.querySelector('.glow').style.backgroundImage = `
+        `;
+        
+        $card.querySelector('.glow').style.backgroundImage = `
         radial-gradient(
           circle at
           ${center.x * 2 + bounds.width / 2}px
           ${center.y * 2 + bounds.height / 2}px,
           #ffffff55,
           #0000000f
-        )
+          )
       `;
     }
 
@@ -61,13 +62,12 @@ const ProductCard = () => {
   }, []); 
   return (
     <div ref={cardRef} className="card">
-      <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/87600cfa-b9c3-4901-bec2-7faa0ddffec2/air-max-270-shoes-rtZHHP.png" alt="" />
+      <img src={data.image} />
 
-
-        <div className="cardTitle">Home Grocery Needs</div>
+        <div className="cardTitle">{data.title}</div>
         <div className="priceArea">
-        <div className="cardPrice">2800/-</div>
-        <div className="cardDiscount">-30% OFF</div>
+        <div className="cardPrice">{data.price}</div>
+        <div className="cardDiscount">-{data.discount}% OFF</div>
         </div>
         <div className="reviewStars">
         ⭐ 5.0  

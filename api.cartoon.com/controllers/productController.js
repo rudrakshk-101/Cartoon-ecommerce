@@ -67,4 +67,15 @@ productController.findByProductId = async (req,res) => {
     }
 }
 
+productController.findProductsByCategory = async (req,res) => {
+    try{
+        const {category} = req.body;
+        const data = await Product.find({category: category});
+        return res.status(200).json(data);
+    }catch(error)
+    {
+        return res.status(500).json({message: "Internal Server Error",error: error.message});
+    }
+}
+
 module.exports = productController;

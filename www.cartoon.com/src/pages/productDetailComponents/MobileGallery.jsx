@@ -36,7 +36,7 @@ const MobileGallery = ({image}) => {
 
   return (
     <section className="mobile-gallery hide-in-desktop">
-      <IconButton
+      {/* <IconButton
         className="icon-button-prev"
         disableRipple
         onClick={handleDecrement}
@@ -47,9 +47,9 @@ const MobileGallery = ({image}) => {
         }}
       >
         <PreviousIcon />
-      </IconButton>
+      </IconButton> */}
       <img src={image} alt="featured-product" />
-      <IconButton
+      {/* <IconButton
         className="icon-button-next"
         disableRipple
         onClick={handleIncrement}
@@ -58,9 +58,9 @@ const MobileGallery = ({image}) => {
           width: "42px",
           bgcolor: "#fff",
         }}
-      >
-        <NextIcon />
-      </IconButton>
+      > */}
+        {/* <NextIcon /> */}
+      {/* </IconButton> */}
     </section>
   );
 };

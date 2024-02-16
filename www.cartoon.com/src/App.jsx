@@ -10,8 +10,9 @@ import UserLoginRegister from './pages/loginregister';
 // import Example from './components/customer/example';
 import Home from './pages/home';
 import ProductDetail from "./pages/productDetail";
-import Checkout from "./pages/checkoutPage";
+// import Checkout from "./pages/checkoutPage";
 import CartPage from './pages/cartPage';
+import PaymentsPage from './pages/paymentsPage';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <CssBaseline />
         <div className="app">
           <div className="sidebarContainer">
-          {isRouteVisible(window.location.pathname) && <Sidebar c isSidebar={isSidebar} />}
+          {isRouteVisible(window.location.pathname) && <Sidebar isSidebar={isSidebar} />}
           </div>
           <main className="content">
           {isRouteVisible(window.location.pathname) &&<Topbar setIsSidebar={setIsSidebar} />}
@@ -36,8 +37,9 @@ function App() {
                 <Route index element={<Home/>} />
                 <Route path='/auth' element={<UserLoginRegister/>} />
                 <Route path='/product/:productId' element={<ProductDetail />} />
-                <Route path='/checkout' element={<Checkout/>} />
+                {/* <Route path='/checkout' element={<Checkout/>} /> */}
                 <Route path='/cart' element={<CartPage />} />
+                <Route path='/payment' element={<PaymentsPage />} />
             </Routes>
           </main>
         </div>
