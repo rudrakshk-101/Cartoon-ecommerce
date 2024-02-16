@@ -1,8 +1,9 @@
 import React from "react";
+import '../styles/cartPage.css';
 
 const CartPage = ()=>{
     return(
-        <h1>Cart Page</h1>
+        <h1>cartpage</h1>
     )
 }
 

@@ -22,7 +22,13 @@ const UserLoginRegister = () => {
       }));
 const LoginRegister = ()=>{
     return(
+<<<<<<< HEAD
         <div className='loginregisterouter'>
+=======
+        <h1>login register</h1>
+    )
+}
+>>>>>>> e0a608608539d83b1f66154329eda60709ee22c2
 
                     <div className="threePhoto">
                         <div className="photo1">
