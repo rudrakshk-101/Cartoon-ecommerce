@@ -55,4 +55,10 @@ productController.findByVendor = async (req,res) => {
     }
 }
 
+productController.findByProductId = async (req,res) => {
+    const {productId} = req.body;
+    const product = await Product.find({productId: productId});
+    return res.status(200).json(product);
+}
+
 module.exports = productController;
