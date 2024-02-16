@@ -27,8 +27,9 @@ const reviewSchema = new mongoose.Schema({
 // Define the main product schema
 const productSchema = new mongoose.Schema({
   productId: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: new mongoose.Types.ObjectId 
+    type: String,
+    unique: false,
+    required: false
   },
   title: {
     type: String,
