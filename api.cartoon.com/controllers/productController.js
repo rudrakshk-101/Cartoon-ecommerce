@@ -56,9 +56,15 @@ productController.findByVendor = async (req,res) => {
 }
 
 productController.findByProductId = async (req,res) => {
+    try
+    {
     const {productId} = req.body;
-    const product = await Product.find({productId: productId});
+    const product = await Product.findOne({productId: productId});
     return res.status(200).json(product);
+    }catch(error)
+    {
+        return res.status(500).json({message: "Internal Server Error",error: error.message});
+    }
 }
 
 module.exports = productController;

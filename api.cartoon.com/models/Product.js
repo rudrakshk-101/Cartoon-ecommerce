@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const reviewSchema = new mongoose.Schema({
   reviewId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: mongoose.Types.ObjectId // Generates new ObjectId
+    default: new mongoose.Types.ObjectId // Generates new ObjectId
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -27,9 +27,8 @@ const reviewSchema = new mongoose.Schema({
 // Define the main product schema
 const productSchema = new mongoose.Schema({
   productId: {
-    type: String,
-    unique: false,
-    required: false
+    type: mongoose.Schema.Types.ObjectId,
+    default: new mongoose.Types.ObjectId
   },
   title: {
     type: String,
