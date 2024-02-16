@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
 #root{
-  font-size: 20px;
+  font-size: 2vh;
   
 }
 body{
@@ -144,7 +144,7 @@ a:hover {
   position: absolute;
   border-radius: 6px;
   left: 0;
-  top: 0;
+  top: -5vh;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
@@ -328,12 +328,11 @@ a:hover {
 }
 
 .buttonContainer{
-  width: 100vw;
   height: 10vh;
   display: flex;
   flex-direction: row;
   text-align: right;
-  padding-left: 70vw;
+  padding-left: 92vw;
   padding-top: 2vh;
   background-color: #e5e5e5;
   margin-left: -20vh;
@@ -346,6 +345,8 @@ a:hover {
   background-color: var(--primary-yellow);
   margin-left: -1vw;
   border-radius: 5vh;
+  border: 2px solid black;
+  min-width: 70px;
 }
 
 .toggle-button :hover{
@@ -370,38 +371,38 @@ a:hover {
 
 
 .threePhoto div{
-  width: 20vw;
-  height: 30vh;
+  width: 14vw;
+  height: 38vh;
   border-radius: 12px;
+  min-width: 14vw;
 }
 
 .photo1{
   position: relative;
-  left: 33%;
-  top: 30%;
+  left: 29%;
+  top: 36%;
   border: 2px solid green;
-  transform: rotate(-58deg);
+  transform: rotate(-25deg);
   background-color: green;
   z-index: 0;
 }
 
 .photo2{
   position: relative;
-  left: 45%;
-  top: 22%;
+  left: 46%;
+  top: -3%;
   border: 2px solid red;
-  transform: rotate(80deg);
   background-color: red;
-  z-index: 2;
+  z-index: 1;
 }
 
 .photo3{
   position: relative;
-  left: 60%;
-  bottom: 25%;
+  left: 65%;
+  bottom: 40%;
   border: 2px solid yellow;
-  transform: rotate(65deg);
+  transform: rotate(24deg);
   background-color: yellow;
-  z-index: 1;
+  z-index: 0;
 }
 
