@@ -39,9 +39,9 @@ const Topbar = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <AppBar position="static" sx={{ backgroundColor: colors.main }}>
-        <Toolbar>
+        <Toolbar sx={{ pb:1}}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <img className="logoImgTag" src={logo} alt="" />
           </Typography>
