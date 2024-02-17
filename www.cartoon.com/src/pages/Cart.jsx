@@ -67,12 +67,20 @@ const Cart = () => {
               </div>
 
               <Button
-                onClick={() => navigate("/checkout?step=2")}
+                onClick={() => navigate("/address?step=2")}
                 variant="contained"
                 type="submit"
                 sx={{ padding: ".8rem 2rem", marginTop: "2rem", width: "100%" }}
               >
-                Check Out
+                Buy 
+              </Button>
+              <Button
+                onClick={() => navigate("/address?step=2")}
+                variant="contained"
+                type="submit"
+                sx={{ padding: ".8rem 2rem", marginTop: "2rem", width: "100%" }}
+              >
+                Rent it Out
               </Button>
             </div>
           </div>

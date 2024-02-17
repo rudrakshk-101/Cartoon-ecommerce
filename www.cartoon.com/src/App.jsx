@@ -14,7 +14,8 @@ import { useLocation } from "react-router-dom";
 import Cart from "./pages/Cart";
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
-import Checkout from "./pages/Checkout";
+import CheckoutPage from "./pages/Checkout";
+import AddDeliveryAddressForm from './pages/AddAddress'
 
 function App() {
   const location = useLocation();
@@ -41,7 +42,8 @@ function App() {
                 <Route path='/swiper' element={<HomeCarousel/>} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/payment' element={<PaymentsPage />} />
-                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/address" element={<AddDeliveryAddressForm />} />
             </Routes>
           </main>
         </div>
