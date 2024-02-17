@@ -19,9 +19,9 @@ const BookSection = () => {
   return (
     <div className="productCardContainer">
       <h1 className="recommendedH1">Books</h1>
-      {array.map((product,index)=>{
-        {<ProductCard key={index} data={product} />}
-      })}
+      {array.map((product,index)=>
+        <ProductCard data={product} key={index} />
+      )}
     </div>
   );
 };
