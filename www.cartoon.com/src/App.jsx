@@ -15,9 +15,11 @@ import CartPage from './pages/cartPage';
 import PaymentsPage from './pages/paymentsPage';
 import HomeCarousel from './pages/crousal/HomeCarousel';
 
-
+import {initializeApp} from 'firebase/app';
+import firebaseConfig from './firebase';
 
 function App() {
+  const app = initializeApp(firebaseConfig);
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   
