@@ -13,6 +13,8 @@ import ProductDetail from "./pages/productDetail";
 // import Checkout from "./pages/checkoutPage";
 import CartPage from './pages/cartPage';
 import PaymentsPage from './pages/paymentsPage';
+import HomeCarousel from './pages/crousal/HomeCarousel';
+
 
 
 function App() {
@@ -37,7 +39,7 @@ function App() {
                 <Route index element={<Home/>} />
                 <Route path='/auth' element={<UserLoginRegister/>} />
                 <Route path='/product/:productId' element={<ProductDetail />} />
-                {/* <Route path='/checkout' element={<Checkout/>} /> */}
+                <Route path='/swiper' element={<HomeCarousel/>} />
                 <Route path='/cart' element={<CartPage />} />
                 <Route path='/payment' element={<PaymentsPage />} />
             </Routes>
