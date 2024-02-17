@@ -401,8 +401,14 @@ a:hover {
   width: 14vw;
   height: 38vh;
   border-radius: 12px;
-  min-width: 14vw;
   
+  
+}
+
+.threePhoto img{
+  width:16vw;
+  height:39vh;
+  border-radius: 2vh;
 }
 
 .photo1{
@@ -413,26 +419,13 @@ a:hover {
   transform: rotate(-25deg);
   background-color: green;
   z-index: 0;
-  animation: glow 2 sec infinite alternate;
-}
-@keyframes glow{
-  0%{
-  border-color: rgba(255, 165, 0,0.5);
-  box-shadow: 0 0 10px rgba(255,165,0,0.5);
-
-}
-100%{
-  border-color: rgba(255,165,0,0.9);
-  box-shadow: 0 0 20px rgba(255,165,0,0.9);
-}
+ 
 }
 
 .photo2{
   position: relative;
   left: 46%;
   top: -3%;
-  border: 2px solid red;
-  background-color: red;
   z-index: 1;
 }
 
@@ -440,9 +433,9 @@ a:hover {
   position: relative;
   left: 65%;
   bottom: 40%;
-  border: 2px solid yellow;
+  
   transform: rotate(24deg);
-  background-color: yellow;
+  
   z-index: 0;
   
 }
@@ -450,7 +443,7 @@ a:hover {
   background-color: #1f2041;
   position: fixed;
 }
-.circle1{
+.circle1l{
   position:absolute;
   width:700px;
   height: 700px;
@@ -460,7 +453,7 @@ a:hover {
   left: -200px;
   background-color: #ff0015;
 }
-.circle2{
+.circle2l{
   position:absolute;
   width:700px;
   height: 700px;

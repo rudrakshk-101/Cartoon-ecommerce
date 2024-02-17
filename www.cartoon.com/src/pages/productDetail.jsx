@@ -37,10 +37,10 @@ function ProductDetail() {
     return (
       <main className="App">
         <div className="backgroundUltra">
-                <div className="circle1">
+                <div className="circle1p">
 
                 </div>
-                <div className="circle2">
+                <div className="circle2p">
                     
                 </div>
 
