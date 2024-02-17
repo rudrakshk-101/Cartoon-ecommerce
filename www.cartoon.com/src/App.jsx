@@ -14,11 +14,13 @@ import ProductDetail from "./pages/productDetail";
 import CartPage from './pages/cartPage';
 import PaymentsPage from './pages/paymentsPage';
 import HomeCarousel from './pages/crousal/HomeCarousel';
+import { useLocation } from "react-router-dom";
 
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
 
 function App() {
+  const location = useLocation();
   const app = initializeApp(firebaseConfig);
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -27,7 +29,7 @@ function App() {
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
-    <BrowserRouter>
+
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -47,7 +49,6 @@ function App() {
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
-    </BrowserRouter>
   );
 }
 

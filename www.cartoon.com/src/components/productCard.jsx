@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/productCard.css';
-
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({data}) => {
@@ -62,14 +62,15 @@ const ProductCard = ({data}) => {
     };
   }, []); 
   return (
-    <div ref={cardRef} className="card">
+    
+    <Link className='card' ref={cardRef} to={`/product/${data.productId}`}>
       <img src={data.image} alt="" />
       <div className='imageCentre'>
 
 
         <div className="cardTitle">{data.title}</div>
         <div className="priceArea">
-        <div className="cardPrice">{data.price}</div>
+        <div className="cardPrice">{data.price.toFixed(2)}</div>
         <div className="cardDiscount">-{data.discount}% OFF</div>
         </div>
         <div className="reviewStars">
@@ -83,7 +84,7 @@ const ProductCard = ({data}) => {
 
 
       <div className="glow" />
-    </div>
+      </Link>
   );
 };
 
