@@ -44,7 +44,7 @@ function ProductDetail() {
 
     return (
       <main className="App">
-        <div className="backgroundUltra">
+        <div className="backgroundUltra flex justify-center items-center h-[15vh]">
                 <div className="circle1">
 
                 </div>
