@@ -77,7 +77,7 @@ console.log("step",step)
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+          <Box sx={{ display: "flex", flexDirection: "row", pt: 2,backgroundColor:"white" }} >
             <Button
               color="inherit"
               disabled={step == 2}

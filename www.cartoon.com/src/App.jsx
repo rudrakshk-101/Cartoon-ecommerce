@@ -14,7 +14,7 @@ import { useLocation } from "react-router-dom";
 import Cart from "./pages/Cart";
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
-import Checkout from './pages/Checkout';
+import Checkout from "./pages/Checkout";
 
 function App() {
   const location = useLocation();
