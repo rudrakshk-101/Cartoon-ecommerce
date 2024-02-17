@@ -92,7 +92,7 @@ console.log("step",step)
           </Box>
           {/* <Typography sx={{ my: 6 }}>Title</Typography> */}
 
-          <div className="my-5">
+          <div className="my-5 bg-white">
             {step == 2? <AddDeliveryAddressForm handleNext={handleNext} />:<OrderSummary/>}
           </div>
 
