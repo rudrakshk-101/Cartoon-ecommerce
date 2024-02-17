@@ -36,16 +36,11 @@
     transform: rotate3d(0);
     z-index: 1;
     margin: 20px;
-<<<<<<< HEAD
-    /* background-color: #e5e5e5; */
-    background-color: #1f2041;
-=======
     background-color: #1f2041;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
->>>>>>> c067a63a05e3dc718d90213682eaf227e7cf4795
   }
   
   .card:hover {
@@ -99,11 +94,8 @@
     width: 85vw;
     padding-left: 2vw;
     padding-top: 2vh;
-<<<<<<< HEAD
     /* background-color: orange; */
-=======
     margin-top: 7vh;
->>>>>>> c067a63a05e3dc718d90213682eaf227e7cf4795
   }
 
   .card img{
