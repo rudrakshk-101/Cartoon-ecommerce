@@ -110,8 +110,9 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   type="submit"
                   variant="contained"
                   color="primary"
+                  
                 >
-                  Delivered Here
+                  Deliver Here
                 </Button>
               </Grid>
             </Grid>

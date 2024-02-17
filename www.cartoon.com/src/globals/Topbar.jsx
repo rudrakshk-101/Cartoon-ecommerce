@@ -94,13 +94,13 @@ const Topbar = () => {
                   CATEGORIES
                 </MenuItem>
                 <MenuItem component={Link} to="/bar" onClick={handleMenuClose}>
-                  books
+                  Books
                 </MenuItem>
                 <MenuItem component={Link} to="/pie" onClick={handleMenuClose}>
-                  aparels
+                  Apparels
                 </MenuItem>
                 <MenuItem component={Link} to="/line" onClick={handleMenuClose}>
-                  electronics
+                  Electronics
                 </MenuItem>
                 <MenuItem component={Link} to="/line" onClick={handleMenuClose}>
                   RECOMENDATIONS
@@ -128,7 +128,7 @@ const Topbar = () => {
               >
                 <HomeOutlinedIcon sx={{ mr: 1, margin:"0 0 0vw 5vw" }} />{" "}
                 {/* Add margin to the right of the icon */}
-                <span style={{ marginLeft: "0.5rem" }}>home</span>{" "}
+                <span style={{ marginLeft: "0.5rem" }}>Home</span>{" "}
                 {/* Add a margin to the left of the text */}
               </MenuItem>
               <MenuItem
@@ -137,7 +137,7 @@ const Topbar = () => {
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <AddIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>CART</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Cart</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
@@ -145,7 +145,7 @@ const Topbar = () => {
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <Inventory2Icon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>RECOMENDATIONS</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Recommendations</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
@@ -153,7 +153,7 @@ const Topbar = () => {
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <BarChartOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>books</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Books</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
@@ -161,7 +161,7 @@ const Topbar = () => {
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <PieChartOutlineOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>aparels</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Apparels</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
@@ -169,7 +169,7 @@ const Topbar = () => {
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <TimelineOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>electronics</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Electronics</span> {/* Add a margin to the left of the text */}
 </MenuItem>
             </Box>
           )}
