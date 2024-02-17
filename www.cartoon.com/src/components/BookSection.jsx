@@ -11,7 +11,7 @@ const BookSection = () => {
     });
     const data = await response.json();
     console.log(data);
-    setArray(data);
+    setArray(data.slice(0,5));
   }
   useEffect(()=>{
     xyz();
