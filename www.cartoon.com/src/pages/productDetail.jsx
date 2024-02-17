@@ -34,6 +34,14 @@ function ProductDetail() {
     const removeQuant = () => {
       setQuant(quant - 1);
     };
+
+
+
+    useEffect(() => {
+      window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
+    }, []);
+
+
     return (
       <main className="App">
         <div className="backgroundUltra">
