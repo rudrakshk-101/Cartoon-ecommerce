@@ -27,7 +27,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
   };
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} backgroundColor="white">
       <Grid item xs={12} lg={5}>
         <Box className="bg-white border rounded-md shadow-md h-[30.5rem] overflow-y-scroll ">
           {/* Hardcoded addresses for demonstration */}
@@ -66,8 +66,8 @@ export default function AddDeliveryAddressForm({ handleNext }) {
         </Box>
       </Grid>
       <Grid item xs={12} lg={7}>
-        <Box className=" checkoutAddressOuter border rounded-md shadow-md p-5">
-          <form onSubmit={handleSubmit}>
+        <Box className=" checkoutAddressOuter border rounded-md shadow-md p-5" sx={{backgroundColor:"white"}}>
+          <form onSubmit={handleSubmit} className="bg-white">
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
