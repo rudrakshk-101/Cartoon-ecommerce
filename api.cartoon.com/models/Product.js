@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-// Define the review subdocument schema
 const reviewSchema = new mongoose.Schema({
   reviewId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: new mongoose.Types.ObjectId // Generates new ObjectId
+    default:() => new mongoose.Types.ObjectId
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Reference to the User model
+    ref: 'User',
     required: true
   },
   rating: {
@@ -24,11 +23,13 @@ const reviewSchema = new mongoose.Schema({
   },
 });
 
-// Define the main product schema
 const productSchema = new mongoose.Schema({
   productId: {
     type: mongoose.Schema.Types.ObjectId,
-    default: new mongoose.Types.ObjectId
+    index: true,
+    required: true,
+    unique: true,
+    default:() => new mongoose.Types.ObjectId // Generates new ObjectId
   },
   title: {
     type: String,
@@ -53,7 +54,7 @@ const productSchema = new mongoose.Schema({
   },
   vendor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Vendor', // Reference to the Vendor model
+    ref: 'Vendor',
   },
   brand: {
     type: String
@@ -67,13 +68,13 @@ const productSchema = new mongoose.Schema({
   },
   rating: {
   },
-  reviews: [reviewSchema], // Embedding the review subdocument schema
+  reviews: [reviewSchema],
   createdAt: {
     type: Date,
     default: Date.now
   }
 });
 
-// Create and export the Product model
 const Product = mongoose.model('Product', productSchema);
+
 module.exports = Product;

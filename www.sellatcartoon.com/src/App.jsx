@@ -40,6 +40,7 @@ const App = () => {
         <Route path='/myProducts' element={<MyProducts />}/>
         <Route path='/editProduct/:productId' element={<EditProduct />}/>
         <Route path='/calendar' element={<Calendar />}/>
+        
       </Routes>
       </main>
       </div>
