@@ -12,10 +12,10 @@ const Home = ()=>{
         <div className='productCardContainer'>
             <HomeCarousel />
             
+            <BookSection />
             <RecommendSection />
             <ApparelSection />
             <ElectronicSection />
-            <BookSection />
             <GrocerySection />
         </div>
     )

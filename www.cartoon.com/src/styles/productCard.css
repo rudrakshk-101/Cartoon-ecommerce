@@ -101,7 +101,7 @@
   }
 
   .card img{
-    width: 180px;
+    width: 132px;
     height: 150px;
     position: relative;
     top: -2%;
@@ -139,6 +139,7 @@
     width: 100vw;
     color: #ffffff;
     font-weight: 600;
+    font-size: 35px;
   }
 
   .productCardBg{

@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
@@ -39,7 +38,7 @@ const Topbar = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 , position:"sticky" }}>
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: colors.main }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -74,43 +73,33 @@ const Topbar = () => {
               >
                 <MenuItem
                   component={Link}
-                  to="/"
+                  to="/dashboard"
                   onClick={handleMenuClose}
                 >
-                  HOME
+                  Dashboard
                 </MenuItem>
                 <MenuItem
                   component={Link}
-                  to="/cart"
+                  to="/addProduct"
                   onClick={handleMenuClose}
                 >
-                  CART
+                  New Product
                 </MenuItem>
                 <MenuItem
                   component={Link}
-                  to="/searchedByCategories"
+                  to="/myProducts"
                   onClick={handleMenuClose}
                 >
-                  CATEGORY
+                  My Products
                 </MenuItem>
-                <MenuItem
-                  component={Link}
-                  to="/"
-                  onClick={handleMenuClose}
-                >
-                  books
+                <MenuItem component={Link} to="/bar" onClick={handleMenuClose}>
+                  Bar Chart
                 </MenuItem>
-                <MenuItem component={Link} to="/" onClick={handleMenuClose}>
-                  electronics
+                <MenuItem component={Link} to="/pie" onClick={handleMenuClose}>
+                  Pie Chart
                 </MenuItem>
-                <MenuItem component={Link} to="/" onClick={handleMenuClose}>
-                  groceries
-                </MenuItem>
-                <MenuItem component={Link} to="/" onClick={handleMenuClose}>
-                  aparels
-                </MenuItem>
-                <MenuItem component={Link} to="/" onClick={handleMenuClose}>
-                  Recommended
+                <MenuItem component={Link} to="/line" onClick={handleMenuClose}>
+                  Line Chart
                 </MenuItem>
               </Menu>
             </>
@@ -124,7 +113,7 @@ const Topbar = () => {
             >
               <MenuItem
                 component={Link}
-                to="/"
+                to="/dashboard"
                 sx={{
                   color: "inherit",
                   textDecoration: "none",
@@ -135,31 +124,24 @@ const Topbar = () => {
               >
                 <HomeOutlinedIcon sx={{ mr: 1 }} />{" "}
                 {/* Add margin to the right of the icon */}
-                <span style={{ marginLeft: "0.5rem" }}>HOME</span>{" "}
+                <span style={{ marginLeft: "0.5rem" }}>Dashboard</span>{" "}
                 {/* Add a margin to the left of the text */}
               </MenuItem>
-              {/* <MenuItem
+              <MenuItem
   component={Link}
-  to="/"
+  to="/addProduct"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
-  <AddIcon sx={{ mr: 1 }} />
-</MenuItem>  */}
-<MenuItem
-  component={Link}
-  to="/cart"
-  sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
->
-  <Inventory2Icon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>CART</span> {/* Add a margin to the left of the text */}
+  <AddIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
+  <span style={{ marginLeft: '0.5rem' }}>New Product</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
-  to="/"
+  to="/myProducts"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
-  <CalendarTodayOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>CATEGORIES</span> {/* Add a margin to the left of the text */}
+  <Inventory2Icon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
+  <span style={{ marginLeft: '0.5rem' }}>My Products</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
@@ -167,39 +149,23 @@ const Topbar = () => {
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <BarChartOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>books</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Bar Chart</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
-  to="/"
+  to="/pie"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <PieChartOutlineOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>electronics</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Pie Chart</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}
-  to="/"
+  to="/line"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
   <TimelineOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>aparels</span> {/* Add a margin to the left of the text */}
-</MenuItem>
-<MenuItem
-  component={Link}
-  to="/"
-  sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
->
-  <TimelineOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>groceries</span> {/* Add a margin to the left of the text */}
-</MenuItem>
-<MenuItem
-  component={Link}
-  to="/"
-  sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
->
-  <TimelineOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>RECOMMENDED FOR YOU</span> {/* Add a margin to the left of the text */}
+  <span style={{ marginLeft: '0.5rem' }}>Line Chart</span> {/* Add a margin to the left of the text */}
 </MenuItem>
             </Box>
           )}
