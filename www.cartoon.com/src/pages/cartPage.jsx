@@ -57,6 +57,7 @@ const CartPage = () => {
 
   return (
     <div className="shopping-cart">
+      
       {/* <div className="column-labels">
         <label className="product-image">Image</label>
         <label className="product-details">Product</label>

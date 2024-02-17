@@ -19,7 +19,7 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   
-  const visibleRoutes = ['/addProduct','/'];
+  const visibleRoutes = ['/addProduct','/','/cart'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
