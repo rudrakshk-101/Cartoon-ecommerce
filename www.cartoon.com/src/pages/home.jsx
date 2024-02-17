@@ -11,11 +11,7 @@ const Home = ()=>{
     return(
         <div className='productCardContainer'>
             <HomeCarousel />
-            <div className="productCardBg">
-                <div className="circle orange-circle"></div>
-                <div className="circle navy-circle"></div>
-                <div className="content"></div>
-            </div>
+            
             <BookSection />
             <RecommendSection />
             <ApparelSection />
