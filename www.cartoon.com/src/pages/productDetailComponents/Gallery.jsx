@@ -43,7 +43,10 @@ const Gallery = ({image}) => {
     <section className="gallery-holder hide-in-mobile">
       <section className="gallery">
         <div className="image">
-          <img src={image} alt="product-1" onClick={handleToggle} />
+          <img src={image} alt="product-1" onClick={handleToggle} style={{
+            width: '25vw',
+            marginLeft: '5vw'
+          }} />
         </div>
         {/* <BackdropGallery
           handleClose={handleClose}

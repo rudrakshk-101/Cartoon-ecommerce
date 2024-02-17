@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({data}) => {
   const cardRef = useRef(null); 
-  console.log(data.image);
   useEffect(() => {
     const $card = cardRef.current;
     let bounds;
@@ -66,8 +65,6 @@ const ProductCard = ({data}) => {
     <Link className='card' ref={cardRef} to={`/product/${data.productId}`}>
       <img src={data.image} alt="" />
       <div className='imageCentre'>
-
-
         <div className="cardTitle">{data.title}</div>
         <div className="priceArea">
         <div className="cardPrice">{data.price.toFixed(2)}</div>
@@ -77,15 +74,12 @@ const ProductCard = ({data}) => {
         ⭐ 5.0  
         </div>
         </div>
-        
-
-
-
-
-
       <div className="glow" />
       </Link>
   );
 };
 
 export default ProductCard;
+
+
+

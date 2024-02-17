@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./productCard";
+import '../styles/productCard.css';
 
 const BookSection = () => {
   const [array,setArray] = useState([]);
