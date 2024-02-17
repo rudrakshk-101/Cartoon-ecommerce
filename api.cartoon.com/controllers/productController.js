@@ -82,4 +82,40 @@ productController.findProductsByCategory = async (req,res) => {
     }
 }
 
+productController.deleteProduct = async(req,res) => {
+    const {productId} = req.body;
+    const product = await Product.findOneAndDelete({productId})
+    if(product) return res.status(200).json({message: "Product Deleted Succesfully"});
+    else return res.status(404).json({message: "Product not fount"});
+}
+
+productController.updateProduct = async (req,res) => {
+        const {
+        productId,
+        title,
+        price,
+        description,
+        image,
+        discount,
+        inventory,
+        brand,
+        category,
+        keywords,
+        vendorId
+    } = req.body;
+    const product = await Product.findOne({productId});
+    product.title = title;
+    product.price = price;
+    product.description = description;
+    product.image = image;
+    product.discount = discount;
+    product.inventory = inventory;
+    product.brand = brand;
+    product.category = category;
+    product.keywords = keywords;
+    product.vendor = vendorId;
+    await product.save();
+    return res.status(200).json({message: "Updated Successfully"});
+}
+
 module.exports = productController;

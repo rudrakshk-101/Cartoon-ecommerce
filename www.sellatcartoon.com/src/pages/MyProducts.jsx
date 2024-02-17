@@ -36,6 +36,7 @@ const MyProducts = () => {
           company={brand}
           prevPrice={price}
           newPrice={`${price - (price * discount / 100)} Rs.`}
+          productId={productId}
         />
       )}
     </div>

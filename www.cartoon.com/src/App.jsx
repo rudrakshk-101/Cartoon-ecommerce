@@ -13,9 +13,15 @@ import ProductDetail from "./pages/productDetail";
 // import Checkout from "./pages/checkoutPage";
 import CartPage from './pages/cartPage';
 import PaymentsPage from './pages/paymentsPage';
+import HomeCarousel from './pages/crousal/HomeCarousel';
+import { useLocation } from "react-router-dom";
 
+import {initializeApp} from 'firebase/app';
+import firebaseConfig from './firebase';
 
 function App() {
+  const location = useLocation();
+  const app = initializeApp(firebaseConfig);
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   
@@ -23,21 +29,19 @@ function App() {
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
-    <BrowserRouter>
+
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <CssBaseline />
         <div className="app">
-          <div className="sidebarContainer">
-          {isRouteVisible(window.location.pathname) && <Sidebar isSidebar={isSidebar} />}
-          </div>
           <main className="content">
-          {isRouteVisible(window.location.pathname) &&<Topbar setIsSidebar={setIsSidebar} />}
+          <div className="topbarContainer">{isRouteVisible(location.pathname) && <Topbar />}</div>
             <Routes>
                 <Route index element={<Home/>} />
                 <Route path='/auth' element={<UserLoginRegister/>} />
                 <Route path='/product/:productId' element={<ProductDetail />} />
-                {/* <Route path='/checkout' element={<Checkout/>} /> */}
+                <Route path='/swiper' element={<HomeCarousel/>} />
                 <Route path='/cart' element={<CartPage />} />
                 <Route path='/payment' element={<PaymentsPage />} />
             </Routes>
@@ -45,7 +49,6 @@ function App() {
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
-    </BrowserRouter>
   );
 }
 

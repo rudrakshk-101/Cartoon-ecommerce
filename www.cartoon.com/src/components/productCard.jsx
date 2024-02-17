@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/productCard.css';
+import { Link } from 'react-router-dom';
 
 
-
-const ProductCard = (props) => {
+const ProductCard = ({data}) => {
   const cardRef = useRef(null); 
+  console.log(data.image);
   useEffect(() => {
     const $card = cardRef.current;
     let bounds;
@@ -61,14 +62,15 @@ const ProductCard = (props) => {
     };
   }, []); 
   return (
-    <div ref={cardRef} className="card">
-      <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/87600cfa-b9c3-4901-bec2-7faa0ddffec2/air-max-270-shoes-rtZHHP.png" alt="" />
+    
+    <Link className='card' ref={cardRef} to={`/product/${data.productId}`}>
+      <img src={data.image} alt="" />
       <div className='imageCentre'>
 
 
         <div className="cardTitle">{data.title}</div>
         <div className="priceArea">
-        <div className="cardPrice">{data.price}</div>
+        <div className="cardPrice">{data.price.toFixed(2)}</div>
         <div className="cardDiscount">-{data.discount}% OFF</div>
         </div>
         <div className="reviewStars">
@@ -82,7 +84,7 @@ const ProductCard = (props) => {
 
 
       <div className="glow" />
-    </div>
+      </Link>
   );
 };
 

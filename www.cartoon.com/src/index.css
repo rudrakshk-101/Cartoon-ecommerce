@@ -37,3 +37,7 @@ body,
 .pro-sidebar-layout{
   position: fixed;
 }
+
+.topbarContainer{
+  position: fixed !important;
+}

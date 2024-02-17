@@ -1,8 +1,9 @@
 import { AiFillStar } from "react-icons/ai";
 import './card.css'
 import { BsFillBagFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-const Card = ({ img, title, reviews, prevPrice, newPrice }) => {
+const Card = ({ img, title, reviews, prevPrice, newPrice,productId }) => {
   let star = <AiFillStar className="rating-star" />;
     return (
     <>
@@ -16,11 +17,13 @@ const Card = ({ img, title, reviews, prevPrice, newPrice }) => {
           </section>
           <section className="card-price">
             <div className="price">
-              <del>{prevPrice}</del> {newPrice}
+            ₹{parseInt(newPrice).toFixed(2)}
             </div>
+            <Link to={`/editProduct/${productId}`}>
             <div className="bag-icon">
               Edit
             </div>
+            </Link>
           </section>
         </div>
       </section>

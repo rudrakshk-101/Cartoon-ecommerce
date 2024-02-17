@@ -20,16 +20,15 @@ const App = () => {
   const location = useLocation();
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
-  const visibleRoutes = ['/addProduct','/myProducts','/dashboard']
+  const visibleRoutes = ['/addProduct','/myProducts','/dashboard','/calendar'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   return (
      <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}> 
         <CssBaseline />
         <div className="app">
-        {isRouteVisible(location.pathname) && <Sidebar isSidebar={isSidebar} />}
           <main className="content">
-          {isRouteVisible(location.pathname) && <Topbar setIsSidebar={setIsSidebar} />}
+          {isRouteVisible(location.pathname) && <Topbar />}
       <Routes>
         <Route path='/dashboard' element={<Dashboard />}/>
         <Route path='/addProduct' element={<AddProduct />}/>
@@ -39,8 +38,8 @@ const App = () => {
         <Route path='/register/banking' element={<RegisterBanking />}/>
         <Route path='/myProducts' element={<MyProducts />}/>
         <Route path='/editProduct/:productId' element={<EditProduct />}/>
-        <Route path='/calendar' element={<Calendar />}/>
-        
+        {/* <Route path='/calendar' element={<Calendar />}/> */}
+
       </Routes>
       </main>
       </div>
