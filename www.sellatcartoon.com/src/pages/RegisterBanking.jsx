@@ -3,57 +3,39 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import {useNavigate} from 'react-router-dom' 
+import { useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Cartoon.com
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function RegisterBanking() {
+  const [ifscCode, setIfscCode] = React.useState('');
+  const [bankName, setBankName] = React.useState('');
+  const [account, setAccount] = React.useState('');
+  const [holder, setHolder] = React.useState('');
+  const [ifscCodeError, setIfscCodeError] = React.useState(false);
+  const [bankNameError, setBankNameError] = React.useState(false);
+  const [accountError, setAccountError] = React.useState(false);
+  const [holderError, setHolderError] = React.useState(false);
 
-  const [ifscCode,setIfscCode] = React.useState('');
-  const [bankName,setBankName] = React.useState('');
-  const [account,setAccount] = React.useState('');
-  const [holder,setHolder] = React.useState('');
+  const navigateTo = useNavigate();
 
-  const handleIfscCode = (e) => setIfscCode(e.target.value);
-  const handleBankNameChange = (e) => setBankName(e.target.value);
-  const handleAccountChange = (e) => setAccount(e.target.value);
-  const handleHolderChange = (e) => setHolder(e.target.value);
-
-  let navigateTo = useNavigate();
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    if (!ifscCode || !bankName || !account || !holder) {
+      setIfscCodeError(!ifscCode);
+      setBankNameError(!bankName);
+      setAccountError(!account);
+      setHolderError(!holder);
+      return;
+    }
 
-  const handleRegister = async() => {
     const response = await fetch('http://localhost:4500/api/vendor/register',{
       method: 'POST',
       headers: {
@@ -75,7 +57,10 @@ export default function RegisterBanking() {
     const data = await response.json();
     console.log(data.message);
     navigateTo('/login');
-  }
+
+    // If all validations pass, navigate to the next step
+    navigateTo('/login');
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -87,7 +72,7 @@ export default function RegisterBanking() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-          }}  
+          }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
@@ -97,46 +82,49 @@ export default function RegisterBanking() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-            <Grid item xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   name="accountHolder"
-                  variant='standard'
+                  variant="standard"
                   value={holder}
-                  onChange={handleHolderChange}
+                  onChange={(e) => setHolder(e.target.value)}
                   label="Account Holder"
                   type="text"
                   id="accountHolder"
                   autoComplete="new-accountHolder"
+                  error={holderError}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
-                  value={account}
-                  onChange={handleAccountChange}
                   fullWidth
+                  value={account}
+                  onChange={(e) => setAccount(e.target.value)}
                   name="accountNumber"
-                  variant='standard'
+                  variant="standard"
                   label="Account Number"
                   type="text"
                   id="accountNumber"
                   autoComplete="new-accountNumber"
+                  error={accountError}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
-                  value={ifscCode}
-                  onChange={handleIfscCode}
                   fullWidth
+                  value={ifscCode}
+                  onChange={(e) => setIfscCode(e.target.value)}
                   name="ifscCode"
-                  variant='standard'
+                  variant="standard"
                   label="IFSC Code"
                   type="text"
                   id="ifscCode"
                   autoComplete="new-ifscCode"
+                  error={ifscCodeError}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -144,19 +132,14 @@ export default function RegisterBanking() {
                   required
                   fullWidth
                   value={bankName}
-                  onChange={handleBankNameChange}
+                  onChange={(e) => setBankName(e.target.value)}
                   name="bankName"
-                  variant='standard'
+                  variant="standard"
                   label="Bank Name"
                   type="text"
                   id="bankName"
                   autoComplete="new-bankName"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I accept all the Terms & Conditions applicable."
+                  error={bankNameError}
                 />
               </Grid>
             </Grid>
@@ -164,10 +147,9 @@ export default function RegisterBanking() {
               type="submit"
               fullWidth
               variant="contained"
-              onClick={handleRegister}
               sx={{ mt: 3, mb: 2 }}
             >
-              Next
+              Confirm
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
@@ -178,7 +160,6 @@ export default function RegisterBanking() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );

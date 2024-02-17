@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
@@ -93,13 +92,6 @@ const Topbar = () => {
                 >
                   My Products
                 </MenuItem>
-                <MenuItem
-                  component={Link}
-                  to="/calendar"
-                  onClick={handleMenuClose}
-                >
-                  Calendar
-                </MenuItem>
                 <MenuItem component={Link} to="/bar" onClick={handleMenuClose}>
                   Bar Chart
                 </MenuItem>
@@ -150,14 +142,6 @@ const Topbar = () => {
 >
   <Inventory2Icon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
   <span style={{ marginLeft: '0.5rem' }}>My Products</span> {/* Add a margin to the left of the text */}
-</MenuItem>
-<MenuItem
-  component={Link}
-  to="/calendar"
-  sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
->
-  <CalendarTodayOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
-  <span style={{ marginLeft: '0.5rem' }}>Calendar</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
   component={Link}

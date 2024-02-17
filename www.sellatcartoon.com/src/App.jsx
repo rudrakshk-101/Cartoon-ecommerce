@@ -8,19 +8,21 @@ import RegisterDetails from './pages/RegisterDetails';
 import RegisterBanking from './pages/RegisterBanking';
 import MyProducts from './pages/MyProducts';
 import EditProduct from './pages/EditProduct';
-import Calendar from './pages/Calendar';
 import { useState } from "react";
+import Pie from './pages/Pie';
 import Topbar from "./globals/Topbar";
 import Sidebar from "./globals/Sidebar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
+import Bar from './pages/Bar';
+import BarChart from './components/BarChart';
 
 
 const App = () => {
   const location = useLocation();
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
-  const visibleRoutes = ['/addProduct','/myProducts','/dashboard','/calendar'];
+  const visibleRoutes = ['/pie','/bar','/addProduct','/myProducts','/dashboard','/calendar'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   return (
      <ColorModeContext.Provider value={colorMode}>
@@ -38,8 +40,9 @@ const App = () => {
         <Route path='/register/banking' element={<RegisterBanking />}/>
         <Route path='/myProducts' element={<MyProducts />}/>
         <Route path='/editProduct/:productId' element={<EditProduct />}/>
-        {/* <Route path='/calendar' element={<Calendar />}/> */}
-
+        <Route path='/bar' element={<Bar />}/>
+        <Route path='/pie' element={<Pie />}/>
+        
       </Routes>
       </main>
       </div>

@@ -16,10 +16,10 @@ const Home = ()=>{
                 <div className="circle navy-circle"></div>
                 <div className="content"></div>
             </div>
+            <BookSection />
             <RecommendSection />
             <ApparelSection />
             <ElectronicSection />
-            <BookSection />
             <GrocerySection />
         </div>
     )

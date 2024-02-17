@@ -3,50 +3,40 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import {useNavigate} from 'react-router-dom' 
+import { useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Cartoon.com
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function RegisterDetails() {
-  let navigateTo = useNavigate();
+  const [gstNumber, setGstNumber] = React.useState('');
+  const [address, setAddress] = React.useState('');
+  const [gstNumberError, setGstNumberError] = React.useState(false);
+  const [addressError, setAddressError] = React.useState(false);
+
+  const navigateTo = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    // Validation
+    if (!gstNumber || !address) {
+      setGstNumberError(!gstNumber);
+      setAddressError(!address);
+      return;
+    }
+
+    // If all validations pass, navigate to the next step
+    localStorage.setItem('address', address);
+    localStorage.setItem('gstNumber', gstNumber);
+    navigateTo('/register/banking');
   };
-
-  const [gstNumber,setGstNumber] = React.useState('');
-  const [address,setAddress] = React.useState('');
-
-  const handleGstChange = (e) => setGstNumber(e.target.value);
-  const handleAddressChange = (e) => setAddress(e.target.value);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -68,18 +58,19 @@ export default function RegisterDetails() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-            <Grid item xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   name="gstNumber"
-                  variant='standard'
+                  variant="standard"
                   value={gstNumber}
-                  onChange={handleGstChange}
+                  onChange={(e) => setGstNumber(e.target.value)}
                   label="GST Number"
                   type="text"
                   id="gstNumber"
                   autoComplete="new-gstNumber"
+                  error={gstNumberError}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -87,13 +78,14 @@ export default function RegisterDetails() {
                   required
                   fullWidth
                   value={address}
-                  onChange={handleAddressChange}
+                  onChange={(e) => setAddress(e.target.value)}
                   name="address"
-                  variant='standard'
+                  variant="standard"
                   label="Shipping Address"
                   type="text"
-                  id="addressr"
+                  id="address"
                   autoComplete="new-address"
+                  error={addressError}
                 />
               </Grid>
             </Grid>
@@ -101,11 +93,6 @@ export default function RegisterDetails() {
               type="submit"
               fullWidth
               variant="contained"
-              onClick={() => {
-                localStorage.setItem('address',address);
-                localStorage.setItem('gstNumber',gstNumber);
-                navigateTo('/register/banking');
-              }}
               sx={{ mt: 3, mb: 2 }}
             >
               Next
@@ -119,7 +106,6 @@ export default function RegisterDetails() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
