@@ -200,7 +200,7 @@ const AddProduct = () => {
             </Box>
           </form>
     </Box>
-  );
+  );          
 };
 
 export default AddProduct;  

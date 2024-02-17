@@ -29,7 +29,6 @@ const PaymentsPage = ()=>{
             <button className="toRazorPay">
                 CONFIRM
             </button>
-
         </div>
         </div>
     )
