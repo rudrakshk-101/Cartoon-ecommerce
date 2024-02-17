@@ -21,7 +21,7 @@ function App() {
   
   const visibleRoutes = ['/addProduct','/'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
-
+  
   return (
     <BrowserRouter>
     <ColorModeContext.Provider value={colorMode}>
