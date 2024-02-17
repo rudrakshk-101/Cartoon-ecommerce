@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter,Routes,Route,useLocation} from 'react-router-dom'
 import Dashboard from './pages/Dashboard';
+import Line from './pages/Line';
 import AddProduct from './pages/AddProduct';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -22,7 +23,7 @@ const App = () => {
   const location = useLocation();
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
-  const visibleRoutes = ['/pie','/bar','/addProduct','/myProducts','/dashboard','/calendar'];
+  const visibleRoutes = ['/line','/pie','/bar','/addProduct','/myProducts','/dashboard','/calendar'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   return (
      <ColorModeContext.Provider value={colorMode}>
@@ -42,6 +43,7 @@ const App = () => {
         <Route path='/editProduct/:productId' element={<EditProduct />}/>
         <Route path='/bar' element={<Bar />}/>
         <Route path='/pie' element={<Pie />}/>
+        <Route path='/line' element={<Line />}/>
         
       </Routes>
       </main>
