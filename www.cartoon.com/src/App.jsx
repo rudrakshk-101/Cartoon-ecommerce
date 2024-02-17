@@ -29,12 +29,10 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <CssBaseline />
         <div className="app">
-          <div className="sidebarContainer">
-          {isRouteVisible(window.location.pathname) && <Sidebar isSidebar={isSidebar} />}
-          </div>
           <main className="content">
-          {isRouteVisible(window.location.pathname) &&<Topbar setIsSidebar={setIsSidebar} />}
+          <div className="topbarContainer">{isRouteVisible(location.pathname) && <Topbar />}</div>
             <Routes>
                 <Route index element={<Home/>} />
                 <Route path='/auth' element={<UserLoginRegister/>} />

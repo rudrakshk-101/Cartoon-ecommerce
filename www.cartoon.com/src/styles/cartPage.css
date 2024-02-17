@@ -28,7 +28,8 @@ Global settings
     color: #aaa;
   }
   .shopping-cart {
-    margin-top: -45px;
+    /* margin-top: -45px; */
+    margin-top: 15vh;
   }
   
   /* Column headers */
