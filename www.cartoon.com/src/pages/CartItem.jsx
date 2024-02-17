@@ -2,6 +2,7 @@ import React from "react";
 import { Button, IconButton } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import '../styles/addressPage.css'
 
 const CartItem = ({ item, showButton }) => {
   const handleRemoveItemFromCart = () => {
@@ -15,7 +16,7 @@ const CartItem = ({ item, showButton }) => {
   };
 
   return (
-    <div className="p-5 shadow-lg border rounded-md">
+    <div className=" checkoutAddressOuter p-5 shadow-lg border rounded-md">
       <div className="flex items-center">
         <div className="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem] ">
           <img
