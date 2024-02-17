@@ -18,7 +18,6 @@ export default function CheckoutPage() {
   };
 
   return (
-<<<<<<< Updated upstream
     <div className="flex justify-center items-center min-h-screen bg-green-100">
       <div className="max-w-lg w-full p-6 bg-white rounded-lg shadow-lg">
         <Typography variant="h5" gutterBottom className="text-center">
@@ -71,39 +70,6 @@ export default function CheckoutPage() {
               disabled={!cashOnDelivery && !razorPay}
               fullWidth
               size="large"
-=======
-    <Box className="px-5 lg:px-32 " sx={{ width: "100%" }}>
-      <Stepper activeStep={step}>
-        {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-         
-          return (
-            <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
-      {activeStep === steps.length ? (
-        <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-            <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleReset}>Reset</Button>
-          </Box>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2,backgroundColor:"black",mt:"8vh",mb:"2vh",ml:"-34px" }} >
-            <Button
-              color="inherit"
-              disabled={step == 2}
-              onClick={handleBack}
-              sx={{ backgroundColor:"white",mb:3,pb:1,ml:2,}}
->>>>>>> Stashed changes
             >
               Proceed to Pay
             </Button>

@@ -32,7 +32,7 @@ function GoogleAuthButton() {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       console.log("User signed in:", user);
-      navigateTo('/');
+      navigateTo('/home');
     } catch (error) {
       console.error("Google sign-in error:", error);
     }
@@ -65,9 +65,10 @@ function SignIn() {
 
     let data = await response.json();
     if (data.token) {
-      navigateTo('/');
+      console.log("loggedin");
+      navigateTo('/home');
     } else {
-      alert('logged in successfully');
+      alert('login failed');
     }
   };
 

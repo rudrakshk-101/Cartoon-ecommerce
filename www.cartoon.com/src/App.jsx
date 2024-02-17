@@ -23,7 +23,7 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   
-  const visibleRoutes = ['/addProduct','/','/cart'];
+  const visibleRoutes = ['/addProduct','/home','/cart'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
@@ -36,8 +36,8 @@ function App() {
           <main className="content">
           <div className="topbarContainer">{isRouteVisible(location.pathname) && <Topbar />}</div>
             <Routes>
-                <Route index element={<Home/>} />
-                <Route path='/auth' element={<UserLoginRegister/>} />
+                <Route path="/home" element={<Home/>} />
+                <Route index element={<UserLoginRegister/>} />
                 <Route path='/product/:productId' element={<ProductDetail />} />
                 <Route path='/swiper' element={<HomeCarousel/>} />
                 <Route path='/cart' element={<Cart />} />
