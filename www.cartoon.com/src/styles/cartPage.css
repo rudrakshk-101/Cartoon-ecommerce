@@ -2,6 +2,7 @@ Global settings
 .shopping-cart, .column-labels, .product, .totals-item, .group:before, .group:after {
     content: "";
     display: table;
+    background-color: white;
   }
   .group:after {
     clear: both;
@@ -28,7 +29,8 @@ Global settings
     color: #aaa;
   }
   .shopping-cart {
-    margin-top: -45px;
+    /* margin-top: -45px; */
+    margin-top: 15vh;
   }
   
   /* Column headers */
@@ -43,12 +45,13 @@ Global settings
   
   /* Product entries */
   .product {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
     height: 10vh;
-    width: 100vw;
-    margin-top: 5vh;
+    width: 83vw;
+    margin-top: 0px;
+    margin-bottom: 1px;
     padding-left:6vh;
     margin-right: 500px;
   }
@@ -57,26 +60,28 @@ Global settings
     float: right;
   }
   .product .product-image img {
-    width: 100px;
+    width: 118px;
+    margin-top: 3vh;
   }
   .product .product-details .product-title {
     margin-right: 20px;
     text-align: right;
-    font-size: 25px;
+    font-size: 28px;
     color: #494;
     font-weight: 700;
     /* float: right; */
     font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
   }
   .product .product-details .product-description {
-    margin: 5px 20px 5px 0;
+    margin: 5px 20px 5px 5px;
     text-align: right;
     float: right;
-    width: 60vw;
+    width: 40vw;
     line-height: 1.4em;
+
   }
   .product .product-quantity input {
-    width: 40px;
+    width: 55px;
   }
   .product .remove-product {
     border: 0;
@@ -95,25 +100,27 @@ Global settings
   .totals .totals-item {
     float: left;
     clear: both;
-    width: 80vw;
-    margin-bottom: 10px;
-    margin-right: 5vw;
+    width: 85vw;
+    margin-bottom: 0px;
+    margin-right: 0;
     display:inline;
+    padding-top: 6px;
   }
   .totals .totals-item label {
     float: left;
     clear: both;
     width: 79%;
     text-align: left;
-    margin-left: 10vw;
+    margin-left: 23vw;
 
   }
   .totals .totals-item .totals-value {
     float: right;
-    width: 21%;
+    width: 26%;
     text-align: center;
     position: relative;
-    top: -5vh;
+    top: -19px;
+    margin-right: 23vh;
   }
   .totals .totals-item-total {
     font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
@@ -123,12 +130,15 @@ Global settings
   .checkout {
     float: left;
     border: 0;
-    margin-top: 20px;
+    margin-top: 57px;
     padding: 6px 25px;
     background-color: #6b6;
     color: #fff;
-    font-size: 25px;
-    border-radius: 3px;
+    width: 100px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-left: -98vh;
+    
     
   }
   .checkout:hover {
@@ -199,5 +209,29 @@ Global settings
     .totals .totals-item .totals-value {
       width: 40%;
     }
+  }
+  .backgroundUlta{
+    background-color: #1f2041;
+    position: fixed;
+  }
+  .circle1{
+    position:absolute;
+    width:700px;
+    height: 700px;
+    border-radius: 50%;
+    filter: blur(300px);
+    top:-300px;
+    left: -200px;
+    background-color: #ff0015;
+  }
+  .circle2{
+    position:absolute;
+    width:700px;
+    height: 700px;
+    border-radius: 50%;
+    filter: blur(300px);
+    top:300px;
+    right: -300px;
+    background-color: #00d9ff;
   }
   /*  */

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useState} from 'react';
-import {useNavigate} from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,50 +14,65 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import firebaseConfig from '../firebase';
+// Initialize Firebase
 
-function Copyright(props) {
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+
+const googleProvider = new GoogleAuthProvider();
+
+function GoogleAuthButton() {
+  const navigateTo = useNavigate();
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      console.log("User signed in:", user);
+      navigateTo('/');
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+    }
+  };
+
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        www.cartoon.com
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    <Button
+      fullWidth
+      variant="contained"
+      sx={{ mt: 2, mb: 1 }}
+      onClick={handleGoogleSignIn}
+    >
+      Sign In with Google
+    </Button>
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
-
-export default function SignIn() {
+function SignIn() {
   const navigateTo = useNavigate();
-  const [email,setGmail]=useState('');
-  const [password,setPassword]=useState('');
-  
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin =async ()=>{
+  const handleLogin = async () => {
     console.log("clicked");
     let response = await fetch('http://localhost:4500/api/user/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, password }),
-});
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-let data = await response.json();
-if(data.token){
-  navigateTo('/');
-  
-}
-else{
-  alert('logged in successfully');
-}
- }
+    let data = await response.json();
+    if (data.token) {
+      navigateTo('/');
+    } else {
+      alert('logged in successfully');
+    }
+  };
+
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={createTheme()}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -74,6 +89,10 @@ else{
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          <GoogleAuthButton />
+          <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 1, mb: 1 }}>
+            - or -
+          </Typography>
           <Box noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -85,7 +104,7 @@ else{
               autoComplete="email"
               autoFocus
               value={email}
-              onChange={(e) => setGmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -111,10 +130,11 @@ else{
             >
               Sign In
             </Button>
-           
           </Box>
         </Box>
       </Container>
     </ThemeProvider>
   );
 }
+
+export default SignIn;

@@ -27,9 +27,8 @@ const App = () => {
       <ThemeProvider theme={theme}> 
         <CssBaseline />
         <div className="app">
-        {isRouteVisible(location.pathname) && <Sidebar isSidebar={isSidebar} />}
           <main className="content">
-          {isRouteVisible(location.pathname) && <Topbar setIsSidebar={setIsSidebar} />}
+          {isRouteVisible(location.pathname) && <Topbar />}
       <Routes>
         <Route path='/dashboard' element={<Dashboard />}/>
         <Route path='/addProduct' element={<AddProduct />}/>

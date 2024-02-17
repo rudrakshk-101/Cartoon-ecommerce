@@ -5,10 +5,12 @@ import ApparelSection from '../components/ApparelSection';
 import ElectronicSection from '../components/ElectronicSection';
 import BookSection from '../components/BookSection';
 import GrocerySection from '../components/GrocerySection';
+import HomeCarousel  from './crousal/HomeCarousel';
 
 const Home = ()=>{
     return(
         <div className='productCardContainer'>
+            <HomeCarousel />
             <div className="productCardBg">
                 <div className="circle orange-circle"></div>
                 <div className="circle navy-circle"></div>

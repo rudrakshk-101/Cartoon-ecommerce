@@ -11,41 +11,44 @@ import UserLoginRegister from './pages/loginregister';
 import Home from './pages/home';
 import ProductDetail from "./pages/productDetail";
 // import Checkout from "./pages/checkoutPage";
-import CartPage from './pages/cartPage';
+// import Cart from './pages/cartPage';
 import PaymentsPage from './pages/paymentsPage';
-
+import HomeCarousel from './pages/crousal/HomeCarousel';
+import { useLocation } from "react-router-dom";
+import Cart from "./pages/Cart";
+import {initializeApp} from 'firebase/app';
+import firebaseConfig from './firebase';
 
 function App() {
+  const location = useLocation();
+  const app = initializeApp(firebaseConfig);
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   
-  const visibleRoutes = ['/addProduct','/'];
+  const visibleRoutes = ['/addProduct','/','/cart'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
-    <BrowserRouter>
+
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <CssBaseline />
         <div className="app">
-          <div className="sidebarContainer">
-          {isRouteVisible(window.location.pathname) && <Sidebar isSidebar={isSidebar} />}
-          </div>
           <main className="content">
-          {isRouteVisible(window.location.pathname) &&<Topbar setIsSidebar={setIsSidebar} />}
+          <div className="topbarContainer">{isRouteVisible(location.pathname) && <Topbar />}</div>
             <Routes>
                 <Route index element={<Home/>} />
                 <Route path='/auth' element={<UserLoginRegister/>} />
                 <Route path='/product/:productId' element={<ProductDetail />} />
-                {/* <Route path='/checkout' element={<Checkout/>} /> */}
-                <Route path='/cart' element={<CartPage />} />
+                <Route path='/swiper' element={<HomeCarousel/>} />
+                <Route path='/cart' element={<Cart />} />
                 <Route path='/payment' element={<PaymentsPage />} />
             </Routes>
           </main>
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
-    </BrowserRouter>
   );
 }
 

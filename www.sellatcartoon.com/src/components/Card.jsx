@@ -17,7 +17,7 @@ const Card = ({ img, title, reviews, prevPrice, newPrice,productId }) => {
           </section>
           <section className="card-price">
             <div className="price">
-              <del>{prevPrice}</del> {newPrice}
+            ₹{parseInt(newPrice).toFixed(2)}
             </div>
             <Link to={`/editProduct/${productId}`}>
             <div className="bag-icon">
