@@ -36,6 +36,15 @@ function ProductDetail() {
     };
     return (
       <main className="App">
+        <div className="backgroundUltra">
+                <div className="circle1">
+
+                </div>
+                <div className="circle2">
+                    
+                </div>
+
+            </div>
           {/* <Navbar onOrderedQuant={orderedQuant} onReset={resetQuant} /> */}
           <section className="core">
             <Gallery image={array.image} />

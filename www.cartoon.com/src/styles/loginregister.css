@@ -334,23 +334,26 @@ a:hover {
   text-align: right;
   padding-left: 92vw;
   padding-top: 2vh;
-  background-color: #e5e5e5;
+  background: rgba(255, 255, 255, 0.1);
   margin-left: -20vh;
+}
+.buttonContainer p{
+  color: white;
 }
 
 .toggle-button{
   float: right;
   width: 5vw;
   height: 6vh;
-  background-color: var(--primary-yellow);
+  background-color: white;
   margin-left: -1vw;
   border-radius: 5vh;
-  border: 2px solid black;
   min-width: 70px;
+  transition: background-color 0.3s;
 }
 
-.toggle-button :hover{
-  color: #c4c3ca;
+.toggle-button:hover{
+  background-color: #c4c3ca;
 }
 .butt{
   width: fit-content;
@@ -367,6 +370,30 @@ a:hover {
   /* border: 2px solid ; */
   height: 100vh;
   position: absolute;
+  -webkit-animation: MoveUpDown 4s linear infinite;
+}
+@-webkit-keyframes MoveUpDown{
+  0%{
+    bottom: 0px;
+  }
+  50%{
+    bottom: 40px;
+  }
+  100%{
+    bottom: 0px;
+  }
+}
+
+@-webkit-keyframes MoveDownUp{
+  0%{
+    bottom: 0px;
+  }
+  50%{
+    bottom: 40px;
+  }
+  100%{
+    bottom: 0px;
+  }
 }
 
 
@@ -375,16 +402,29 @@ a:hover {
   height: 38vh;
   border-radius: 12px;
   min-width: 14vw;
+  
 }
 
 .photo1{
   position: relative;
   left: 29%;
   top: 36%;
-  border: 2px solid green;
+  border: 2px transparent;
   transform: rotate(-25deg);
   background-color: green;
   z-index: 0;
+  animation: glow 2 sec infinite alternate;
+}
+@keyframes glow{
+  0%{
+  border-color: rgba(255, 165, 0,0.5);
+  box-shadow: 0 0 10px rgba(255,165,0,0.5);
+
+}
+100%{
+  border-color: rgba(255,165,0,0.9);
+  box-shadow: 0 0 20px rgba(255,165,0,0.9);
+}
 }
 
 .photo2{
@@ -404,6 +444,7 @@ a:hover {
   transform: rotate(24deg);
   background-color: yellow;
   z-index: 0;
+  
 }
 .backgroundUlta{
   background-color: #1f2041;

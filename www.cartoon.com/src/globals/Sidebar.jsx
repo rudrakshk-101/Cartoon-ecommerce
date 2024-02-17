@@ -91,9 +91,8 @@ const Sidebar = () => {
         // position:"fixed"
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
-        <Menu iconShape="square"
-        >
+      <ProSidebar collapsed={isCollapsed} >
+        <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
