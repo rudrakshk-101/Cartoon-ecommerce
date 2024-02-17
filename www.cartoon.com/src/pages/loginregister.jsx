@@ -6,6 +6,9 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
 import ProductCard from "../components/productCard";
+import image from '../assets/Screenshot 2024-02-17 155454.png';
+import image1 from '../assets/Screenshot 2024-02-17 155612.png';
+import image2 from '../assets/Screenshot 2024-02-17 155819.png';
 // import Card3d from './3dcard';
 
 const LoginRegister = () => {
@@ -27,14 +30,21 @@ const LoginRegister = () => {
   return (
     <div className="loginregisterouter">
       <div className="backgroundUltra">
-        <div className="circle1"></div>
-        <div className="circle2"></div>
+        <div className="circle1l"></div>
+        <div className="circle2l"></div>
       </div>
 
       <div className="threePhoto">
-        <div className="photo1"></div>
-        <div className="photo2"></div>
-        <div className="photo3">1</div>
+        <div className="photo1">
+        <img src={image1} alt="" srcset="" />
+        </div>
+        <div className="photo2">
+        <img src={image} alt="" srcset="" />
+            
+        </div>
+        <div className="photo3">
+            <img src={image2} alt="" srcset="" />
+        </div>
       </div>
 
       <div className="section over-hide">

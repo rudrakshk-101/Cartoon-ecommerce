@@ -11,11 +11,11 @@ import UserLoginRegister from './pages/loginregister';
 import Home from './pages/home';
 import ProductDetail from "./pages/productDetail";
 // import Checkout from "./pages/checkoutPage";
-import CartPage from './pages/cartPage';
+// import Cart from './pages/cartPage';
 import PaymentsPage from './pages/paymentsPage';
 import HomeCarousel from './pages/crousal/HomeCarousel';
 import { useLocation } from "react-router-dom";
-
+import Cart from "./pages/Cart";
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
 
@@ -42,7 +42,7 @@ function App() {
                 <Route path='/auth' element={<UserLoginRegister/>} />
                 <Route path='/product/:productId' element={<ProductDetail />} />
                 <Route path='/swiper' element={<HomeCarousel/>} />
-                <Route path='/cart' element={<CartPage />} />
+                <Route path='/cart' element={<Cart />} />
                 <Route path='/payment' element={<PaymentsPage />} />
             </Routes>
           </main>
