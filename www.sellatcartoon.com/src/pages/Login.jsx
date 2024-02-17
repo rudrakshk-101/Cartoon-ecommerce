@@ -33,7 +33,7 @@ export default function Login(props) {
     const data = await response.json();
     if (response.ok) {
       localStorage.setItem('vendorId', data.vendorId);
-      navigateTo('/');
+      navigateTo('/dashboard');
     } else {
       setError(data.message);
       setEmailError(false);
@@ -47,6 +47,12 @@ export default function Login(props) {
       setEmailError(!email);
       setPasswordError(!password);
       setError('Please fill in both fields.');
+      return;
+    }
+    if(password.length < 8)
+    {
+      setPasswordError(true);
+      setError('Password must be at least 8 characters');
       return;
     }
     handleLogin();

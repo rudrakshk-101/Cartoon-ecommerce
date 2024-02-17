@@ -60,4 +60,17 @@ vendorController.login = async(req,res) => {
     }
 }
 
+vendorController.getVendor = async (req,res) => {
+    try
+    {
+        const {vendorId} = req.body;
+        const vendor = await Vendor.findOne({vendorId});
+        if(vendor) return res.status(200).json({vendor});
+        else return res.status(404).json({message: "Invalid vendor"});
+    }catch(error)
+    {
+        return res.status(500).json({message: error.message});
+    }
+}
+
 module.exports = vendorController;

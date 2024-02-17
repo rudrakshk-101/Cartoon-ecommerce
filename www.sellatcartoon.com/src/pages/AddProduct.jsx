@@ -1,35 +1,32 @@
 import { Box, Button, TextField } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../components/Header";
+import {useNavigate} from 'react-router-dom'
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Snackbar from "../components/Snackbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProdcutSnackbar from "../components/Snackbar";
+import axios from 'axios';
 
 const AddProduct = () => {
+  const navigvateTo = useNavigate();
   let abcd = (values) => {}
   const [snack,setSnack] = useState(false);
 
   const handleFormSubmit = async (e) => {
-  
+    console.log("function called")
+  e.preventDefault();
     // Prevent double submission
-    if (snack) return;
-  
-    setSnack(true);
     try {
-      const response = await fetch('http://localhost:4500/api/product/addProduct',{
-        method: 'POST',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-          title,brand,image,description,price,discount,inventory,category,keywords,
-          vendorId: localStorage.getItem('vendorId')
-        })
+      const response = await axios.post('http://localhost:4500/api/product/addProduct',{
+        title,brand,image,description,price,discount,inventory,category,keywords,
+        vendorId: localStorage.getItem('vendorId')
       });
-      const data = await response.json();
-      
+      console.log(response);
+      navigvateTo('/myProducts')
     } catch (error) {
       console.error('Error submitting form:', error);
       // Handle error, e.g., display an error message
@@ -39,6 +36,15 @@ const AddProduct = () => {
     }
   };
 
+
+  useEffect(()=> {
+    const vendorId = localStorage.getItem('vendorId');
+    if(!vendorId)
+    {
+      navigvateTo('/login');
+      return;
+    }
+  },[])
 
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [category,setCategory] = useState('');
@@ -78,7 +84,6 @@ const AddProduct = () => {
     <Box m="20px">
       <Header title="ADD NEW PRODUCT" subtitle="Add your product" />
       {snack ? <ProdcutSnackbar snack={snack} setSnack={setSnack}/> : <></>}
-          <form onSubmit={handleFormSubmit}>
             <Box
               display="grid"
               gap="30px"
@@ -194,11 +199,10 @@ const AddProduct = () => {
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <Button type="submit" color="secondary" variant="contained" onClick={handleFormSubmit}>
                 Add Product
               </Button>
             </Box>
-          </form>
     </Box>
   );          
 };
