@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { Checkbox, FormControlLabel, Grid, Button, Typography } from "@mui/material";
+import { Checkbox, FormControlLabel, Grid, Button, Typography, Radio, RadioGroup } from "@mui/material";
 
 export default function CheckoutPage() {
-  const [cashOnDelivery, setCashOnDelivery] = useState(false);
-  const [razorPay, setRazorPay] = useState(false);
+  // State to track the selected payment method
+  const [paymentMethod, setPaymentMethod] = useState('');
+
+  // Handler for changing the payment method
+  const handlePaymentMethodChange = (event) => {
+    setPaymentMethod(event.target.value);
+  };
+
   const totalPrice = 100; // Replace with the total price of all items
   const gst = totalPrice * 0.18; // Assuming GST rate is 18%
   const sgst = totalPrice * 0.09; // Assuming SGST rate is 9%
   const totalAmount = totalPrice + gst + sgst;
-
-  const handleCashOnDeliveryChange = (event) => {
-    setCashOnDelivery(event.target.checked);
-  };
-
-  const handleRazorPayChange = (event) => {
-    setRazorPay(event.target.checked);
-  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-green-100">
@@ -54,20 +52,16 @@ export default function CheckoutPage() {
             <Typography variant="h6" gutterBottom>
               Payment Options
             </Typography>
-            <FormControlLabel
-              control={<Checkbox checked={cashOnDelivery} onChange={handleCashOnDeliveryChange} />}
-              label="Cash on Delivery"
-            />
-            <FormControlLabel
-              control={<Checkbox checked={razorPay} onChange={handleRazorPayChange} />}
-              label="RazorPay"
-            />
+            <RadioGroup value={paymentMethod} onChange={handlePaymentMethodChange}>
+              <FormControlLabel value="cashOnDelivery" control={<Radio />} label="Cash on Delivery" />
+              <FormControlLabel value="razorPay" control={<Radio />} label="RazorPay" />
+            </RadioGroup>
           </Grid>
           <Grid item xs={12}>
             <Button
               variant="contained"
               color="primary"
-              disabled={!cashOnDelivery && !razorPay}
+              disabled={!paymentMethod}
               fullWidth
               size="large"
             >
@@ -78,7 +72,7 @@ export default function CheckoutPage() {
             <Button
               variant="contained"
               color="primary"
-              disabled={!cashOnDelivery && !razorPay}
+              disabled={!paymentMethod}
               fullWidth
               size="large"
             >

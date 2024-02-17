@@ -27,46 +27,9 @@ export default function AddDeliveryAddressForm({ handleNext }) {
   };
 
   return (
-    <Grid container spacing={4} backgroundColor="white">
-      <Grid item xs={12} lg={5}>
-        <Box className="bg-white border rounded-md shadow-md h-[30.5rem] overflow-y-scroll ">
-          {/* Hardcoded addresses for demonstration */}
-          {[
-            {
-              id: 1,
-              firstName: "John",
-              lastName: "Doe",
-              streetAddress: "123 Main St",
-              city: "New York",
-              state: "NY",
-              zipCode: "10001",
-              mobile: "123-456-7890",
-            },
-            // Add more addresses as needed
-          ].map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setSelectedAddress(item)}
-              className="p-5 py-7 border-b cursor-pointer"
-            >
-              <AddressCard address={item} />
-              {selectedAddress?.id === item.id && (
-                <Button
-                  sx={{ mt: 2 }}
-                  size="large"
-                  variant="contained"
-                  color="primary"
-                  onClick={() => handleSubmit(item)}
-                >
-                  Delivered Here
-                </Button>
-              )}
-            </div>
-          ))}
-        </Box>
-      </Grid>
+    <Grid container justifyContent="center" alignItems="center" sx={{ minHeight: "100vh" }}>
       <Grid item xs={12} lg={7}>
-        <Box className=" checkoutAddressOuter border rounded-md shadow-md p-5" sx={{backgroundColor:"white"}}>
+        <Box className="checkoutAddressOuter border rounded-md shadow-md p-5" sx={{ backgroundColor: "white", borderRadius: 0, overflow: "hidden" }}>
           <form onSubmit={handleSubmit} className="bg-white">
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
