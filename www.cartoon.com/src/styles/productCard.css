@@ -137,6 +137,8 @@
     margin-left: 10vw;
     flex: none;
     width: 100vw;
+    color: #ffffff;
+    font-weight: 600;
   }
 
   .productCardBg{
