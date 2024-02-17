@@ -5,19 +5,16 @@ import Sidebar from "./globals/Sidebar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import "./index.css";
-// import AddProduct from "./pages/AddProduct";
 import UserLoginRegister from './pages/loginregister';
-// import Example from './components/customer/example';
 import Home from './pages/home';
 import ProductDetail from "./pages/productDetail";
-// import Checkout from "./pages/checkoutPage";
-// import Cart from './pages/cartPage';
 import PaymentsPage from './pages/paymentsPage';
 import HomeCarousel from './pages/crousal/HomeCarousel';
 import { useLocation } from "react-router-dom";
 import Cart from "./pages/Cart";
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
+import Checkout from './pages/Checkout';
 
 function App() {
   const location = useLocation();
@@ -44,6 +41,7 @@ function App() {
                 <Route path='/swiper' element={<HomeCarousel/>} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/payment' element={<PaymentsPage />} />
+                <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </main>
         </div>
