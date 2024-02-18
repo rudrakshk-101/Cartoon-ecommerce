@@ -14,8 +14,9 @@ import { useLocation } from "react-router-dom";
 import Cart from "./pages/Cart";
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
-import CheckoutPage from "./pages/Checkout";
-import AddDeliveryAddressForm from './pages/AddAddress'
+import CheckoutPage from "./pages/checkout";
+import AddDeliveryAddressForm from './pages/AddAddress';
+import InvoiceGenerator from './pages/invoicePage';
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,8 @@ function App() {
                 <Route path='/payment' element={<PaymentsPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/address" element={<AddDeliveryAddressForm />} />
+                <Route path="/invoice" element={<InvoiceGenerator />} />
+
             </Routes>
           </main>
         </div>
