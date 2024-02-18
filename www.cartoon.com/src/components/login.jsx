@@ -32,9 +32,8 @@ function GoogleAuthButton({setLoader}) {
       setLoader(true);
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      ("User signed in:", user);
-      navigateTo('/');
-      setLoader(true);
+      console.log("User signed in:", user);
+      navigateTo('/home');
     } catch (error) {
       console.error("Google sign-in error:", error);
       setLoader(true);
@@ -68,12 +67,10 @@ function SignIn({setLoader}) {
 
     let data = await response.json();
     if (data.token) {
-      localStorage.setItem('userId',data.userId);
-      navigateTo('/');
-      setLoader(true);
+      console.log("loggedin");
+      navigateTo('/home');
     } else {
-      alert('logged in successfully');
-      setLoader(true);
+      alert('login failed');
     }
   };
 

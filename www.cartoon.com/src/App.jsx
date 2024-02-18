@@ -17,6 +17,8 @@ import firebaseConfig from './firebase';
 import CheckoutPage from "./pages/Checkout";
 import AddDeliveryAddressForm from './pages/AddAddress'
 import Loader from "./components/Loader";
+import AddDeliveryAddressForm from './pages/AddAddress';
+import InvoiceGenerator from './pages/invoicePage';
 
 function App() {
   const location = useLocation();
@@ -25,7 +27,7 @@ function App() {
   const [isSidebar, setIsSidebar] = useState(true);
   const [loader,setLoader] = useState(false);
   
-  const visibleRoutes = ['/addProduct','/','/cart'];
+  const visibleRoutes = ['/addProduct','/home','/cart'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
@@ -46,6 +48,8 @@ function App() {
                 <Route path='/payment' element={<PaymentsPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/address" element={<AddDeliveryAddressForm />} />
+                <Route path="/invoice" element={<InvoiceGenerator />} />
+
             </Routes>
           </main>
         </div>

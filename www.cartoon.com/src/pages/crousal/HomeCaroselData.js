@@ -1,19 +1,23 @@
+import img1 from '../../assets/carousalpics/1.png';
+import img2 from '../../assets/carousalpics/2.png';
+import img3 from '../../assets/carousalpics/3.png';
+import img4 from '../../assets/carousalpics/4.png';
 export const homeCarouselData=[
     {
-        image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/0/10_5.jpg",
-        path:"/women/clothing/lengha_choli"
+        image:img1,
+        path:"/home"
     },
     {
-        image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/2/12_4.jpg",
-        path:"/women/clothing/women_dress"
+        image:img2,
+        path:"/home"
     },
     {
-        image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/9/_/9_8.jpg",
-        path:"/women/clothing/women_dress"
+        image:img3,
+        path:"/home"
     },
     {
-        image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/1/11_4.jpg",
-        path:"/women/clothing/women_saree"
+        image:img4,
+        path:"/home"
     }
 
 ]

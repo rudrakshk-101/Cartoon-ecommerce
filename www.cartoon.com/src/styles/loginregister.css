@@ -458,3 +458,11 @@ a:hover {
   right: -300px;
   background-color: #00d9ff;
 }
+
+
+
+@media screen and (max-width: 1024px){
+  .threePhoto{
+    display: none;
+  }
+}
