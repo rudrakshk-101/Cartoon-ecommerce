@@ -25,7 +25,7 @@ function App() {
   const [isSidebar, setIsSidebar] = useState(true);
   const [loader,setLoader] = useState(false);
   
-  const visibleRoutes = ['/addProduct','/home','/cart'];
+  const visibleRoutes = ['/addProduct','/home','/cart','/'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
