@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./productCard";
 
-const BookSection = () => {
+const BookSection = ({setLoader}) => {
   const [array,setArray] = useState([]);
   const xyz = async()=> {
+    setLoader(true);
     const response = await fetch('http://localhost:4500/api/product/findProductsByCategory',{
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -12,6 +13,7 @@ const BookSection = () => {
     const data = await response.json();
     console.log(data);
     setArray(data);
+    setLoader(false);
   }
   useEffect(()=>{
     xyz();

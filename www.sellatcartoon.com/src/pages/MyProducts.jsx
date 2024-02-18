@@ -14,7 +14,6 @@ const MyProducts = () => {
     });
     const data = await response.json();
     setArray(data);
-    console.log(data);
   }
   useEffect(()=> {
     const vendorId = localStorage.getItem('vendorId');

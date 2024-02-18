@@ -17,7 +17,6 @@ const THUMBS = [thumb1, thumb2, thumb3, thumb4];
 const Gallery = ({image}) => {
   const [currentImage, setCurrentImage] = useState(prod1);
   const [currentPassedImage, setCurrentPassedImage] = useState(prod1);
-  // console.log(image);
 
   const [open, setOpen] = useState(false);
   const handleClick = (index) => {

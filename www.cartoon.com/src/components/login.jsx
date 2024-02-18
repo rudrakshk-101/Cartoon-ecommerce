@@ -25,16 +25,19 @@ const auth = getAuth();
 
 const googleProvider = new GoogleAuthProvider();
 
-function GoogleAuthButton() {
+function GoogleAuthButton({setLoader}) {
   const navigateTo = useNavigate();
   const handleGoogleSignIn = async () => {
     try {
+      setLoader(true);
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      console.log("User signed in:", user);
+      ("User signed in:", user);
       navigateTo('/');
+      setLoader(true);
     } catch (error) {
       console.error("Google sign-in error:", error);
+      setLoader(true);
     }
   };
 
@@ -50,13 +53,13 @@ function GoogleAuthButton() {
   );
 }
 
-function SignIn() {
+function SignIn({setLoader}) {
   const navigateTo = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    console.log("clicked");
+    setLoader(true);
     let response = await fetch('http://localhost:4500/api/user/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -65,9 +68,12 @@ function SignIn() {
 
     let data = await response.json();
     if (data.token) {
+      localStorage.setItem('userId',data.userId);
       navigateTo('/');
+      setLoader(true);
     } else {
       alert('logged in successfully');
+      setLoader(true);
     }
   };
 
@@ -89,7 +95,7 @@ function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <GoogleAuthButton />
+          <GoogleAuthButton setLoader={setLoader} />
           <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 1, mb: 1 }}>
             - or -
           </Typography>

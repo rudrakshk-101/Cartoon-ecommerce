@@ -1,8 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CartIcon from "../Icons/CartIcon";
 import QuantityButton from "./QuantityButton";
 
-const Description = ({ onQuant, onAdd, onRemove,title , description, price, discount,brand}) => {
+const Description = ({ quant, onAdd, onRemove,title , description, price, discount,brand,productId,setLoader}) => {
+  const navigateTo = useNavigate();
+const handleAddToCart = async() => {
+  setLoader(true);
+  const response = await fetch('http://localhost:4500/api/user/addToCart',
+  {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({productId,quantity: quant,userId: localStorage.getItem('userId')})
+  });
+  const data = await response.json();
+  setLoader(false);
+  navigateTo('/cart');
+}
   return (
     <section className="description" style={{
       marginRight: '5vw'
@@ -20,15 +36,13 @@ const Description = ({ onQuant, onAdd, onRemove,title , description, price, disc
         <s>₹{parseInt(price).toFixed(2)}</s>
       </div>
       <div className="buttons">
-        <QuantityButton onQuant={onQuant} onRemove={onRemove} onAdd={onAdd} />
+        <QuantityButton quant={quant} onRemove={onRemove} onAdd={onAdd} />
         <button
           className="add-to-cart"
-          onClick={() => {
-            // onSetOrderedQuant(onQuant);
-          }}
+          onClick={handleAddToCart}
         >
           <CartIcon />
-          add to cart
+          Add To Cart
         </button>
       </div>
     </section>

@@ -25,7 +25,6 @@ const AddProduct = () => {
         title,brand,image,description,price,discount,inventory,category,keywords,
         vendorId: localStorage.getItem('vendorId')
       });
-      console.log(response);
       navigvateTo('/myProducts')
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -76,7 +75,6 @@ const AddProduct = () => {
       ...prevState,
       [name]: value
     }));
-    console.log(name,value);
   };
 
   return (

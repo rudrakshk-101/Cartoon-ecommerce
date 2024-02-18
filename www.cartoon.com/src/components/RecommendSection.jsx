@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./productCard";
 
-const BookSection = () => {
+const RecommendSection = ({setLoader}) => {
   const [array,setArray] = useState([]);
   const xyz = async()=> {
+    setLoader(true);
     const response = await fetch('http://localhost:4500/api/product/getRecommendations',{
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({title: 'Harry Potter and the Prisoner of Azkaban (Book 3)'})
     });
     const data = await response.json();
-    console.log(data);
     setArray(data);
+    setLoader(false);
   }
   useEffect(()=>{
     xyz();
@@ -26,4 +27,4 @@ const BookSection = () => {
   );
 };
 
-export default BookSection;
+export default RecommendSection;

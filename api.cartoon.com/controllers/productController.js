@@ -148,4 +148,6 @@ productController.getAllProducts = async (req,res) => {
     return res.json(data);
 }
 
+
+
 module.exports = productController;
