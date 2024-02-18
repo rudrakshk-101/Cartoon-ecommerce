@@ -14,7 +14,7 @@ import { useLocation } from "react-router-dom";
 import Cart from "./pages/Cart";
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
-import CheckoutPage from "./pages/checkout";
+import CheckoutPage from "./pages/Checkout";
 import AddDeliveryAddressForm from './pages/AddAddress';
 import InvoiceGenerator from './pages/invoicePage';
 

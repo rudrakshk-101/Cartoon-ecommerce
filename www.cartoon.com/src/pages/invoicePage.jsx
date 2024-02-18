@@ -33,20 +33,20 @@ function InvoiceGenerator() {
     };
 
     return (
-        <div>
+        <div className='InvoiceBg'>
             <button onClick={generateInvoice}>Generate Invoice</button>
             <button onClick={downloadInvoice} disabled={!invoice}>Download Invoice</button>
             {invoice && (
                 <div id="invoice-container">
-                    <h2>Invoice #{invoice.id}</h2>
-                    <p>Date: {invoice.date}</p>
+                    <h2 className='card-title'>Invoice #{invoice.id}</h2>
+                    <p >Date: {invoice.date}</p>
                     <table>
                         <thead>
                             <tr>
-                                <th>Description</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Total</th>
+                                <th>Description </th>
+                                <th>Quantity </th>
+                                <th>Price </th>
+                                <th>Total </th>
                             </tr>
                         </thead>
                         <tbody>
