@@ -17,7 +17,6 @@ import firebaseConfig from './firebase';
 import CheckoutPage from "./pages/Checkout";
 import AddDeliveryAddressForm from './pages/AddAddress'
 import Loader from "./components/Loader";
-import AddDeliveryAddressForm from './pages/AddAddress';
 import InvoiceGenerator from './pages/invoicePage';
 
 function App() {
