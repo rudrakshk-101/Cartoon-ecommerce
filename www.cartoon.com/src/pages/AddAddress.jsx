@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button, Box } from "@mui/material";
-import AddressCard from "./AdreessCard";
+import {useNavigate} from "react-router-dom";
 
 export default function AddDeliveryAddressForm({ handleNext }) {
+  const navigateTo=useNavigate()
   const [selectedAddress, setSelectedAddress] = useState(null);
 
   const handleSubmit = (event) => {
@@ -21,7 +22,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
 
     // For this example, you can handle order creation directly here without dispatching actions or using Redux
     console.log("Creating order with address:", address);
-
+    navigateTo('/checkout')
     // After performing all the operations
     handleNext();
   };
