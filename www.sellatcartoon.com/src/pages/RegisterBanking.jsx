@@ -55,7 +55,6 @@ export default function RegisterBanking() {
       })
     });
     const data = await response.json();
-    console.log(data.message);
     navigateTo('/login');
 
     // If all validations pass, navigate to the next step

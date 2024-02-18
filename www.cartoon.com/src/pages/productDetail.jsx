@@ -5,13 +5,14 @@ import Description from "./productDetailComponents/Description";
 import MobileGallery from "./productDetailComponents/MobileGallery";
 import {useParams} from 'react-router-dom';
 
-function ProductDetail() {
+function ProductDetail({setLoader}) {
     const [quant, setQuant] = useState(0);
     const {productId} = useParams();
   
     const [array,setArray] = useState({});
 
     let xyz = async() => {
+      setLoader(true);
       console.log(productId);
       const response = await fetch('http://localhost:4500/api/product/findByProductId',{
         method: 'POST',
@@ -21,6 +22,7 @@ function ProductDetail() {
       const data = await response.json();
       console.log(data);
       setArray(data);
+      setLoader(false);
     }
 
     useEffect(() => {
@@ -28,10 +30,12 @@ function ProductDetail() {
     },[])
 
     const addQuant = () => {
+      console.log('Increased');
       setQuant(quant + 1);
     };
   
     const removeQuant = () => {
+      console.log('Decreased');
       setQuant(quant - 1);
     };
 
@@ -58,10 +62,13 @@ function ProductDetail() {
             <Gallery image={array.image} />
             <MobileGallery image={array.image} />
             <Description
-              onQuant={quant}
+              quant={quant}
+              setQuant={setQuant}
               onAdd={addQuant}
               onRemove={removeQuant}
               title={array.title}
+              productId={array.productId}
+              setLoader={setLoader}
               brand={array.brand}
               description={array.description} 
               price={array.price}

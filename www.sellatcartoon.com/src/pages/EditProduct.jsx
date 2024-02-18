@@ -22,13 +22,11 @@ const AddProduct = () => {
   }
 
   const handleFormSubmit = async (e) => {
-    console.log("function called")
   e.preventDefault();
       const response = await axios.post('http://localhost:4500/api/product/updateProduct',{
         title,brand,image,description,price,discount,inventory,category,keywords,
         vendorId: localStorage.getItem('vendorId'),productId: productId
       });
-      console.log(response);
       navigvateTo('/myProducts');
   };
 
@@ -87,7 +85,6 @@ const AddProduct = () => {
       ...prevState,
       [name]: value
     }));
-    console.log(name,value);
   };
 
   return (

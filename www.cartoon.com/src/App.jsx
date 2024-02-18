@@ -23,6 +23,7 @@ function App() {
   const app = initializeApp(firebaseConfig);
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+  const [loader,setLoader] = useState(false);
   
   const visibleRoutes = ['/addProduct','/home','/cart'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
@@ -36,12 +37,12 @@ function App() {
         <div className="app">
           <main className="content">
           <div className="topbarContainer">{isRouteVisible(location.pathname) && <Topbar />}</div>
+          {loader && <Loader />}
             <Routes>
-                <Route path="/home" element={<Home/>} />
-                <Route index element={<UserLoginRegister/>} />
-                <Route path='/product/:productId' element={<ProductDetail />} />
-                <Route path='/swiper' element={<HomeCarousel/>} />
-                <Route path='/cart' element={<Cart />} />
+                <Route index element={<Home setLoader={setLoader}/>} />
+                <Route path='/auth' element={<UserLoginRegister setLoader={setLoader}/>} />
+                <Route path='/product/:productId' element={<ProductDetail setLoader={setLoader}/>} />
+                <Route path='/cart' element={<Cart setLoader={setLoader}/>} />
                 <Route path='/payment' element={<PaymentsPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/address" element={<AddDeliveryAddressForm />} />

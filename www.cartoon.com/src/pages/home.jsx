@@ -7,25 +7,25 @@ import GrocerySection from '../components/GrocerySection';
 import HomeCarousel from './crousal/HomeCarousel';
 import { Grid } from '@material-ui/core';
 
-const Home = () => {
+const Home = ({setLoader}) => {
     return (
         <div className='productCardContainer'>
             <HomeCarousel />
             <Grid container spacing={3}>
                 <Grid item xs={12}>
-                    <RecommendSection />
+                    <RecommendSection setLoader={setLoader} />
                 </Grid>
                 <Grid item xs={12}>
-                    <BookSection />
+                    <BookSection setLoader={setLoader} />
                 </Grid>
                 <Grid item xs={12}>
-                    <ApparelSection />
+                    <ApparelSection setLoader={setLoader} />
                 </Grid>
                 <Grid item xs={12}>
-                    <ElectronicSection />
+                    <ElectronicSection setLoader={setLoader} />
                 </Grid>
                 <Grid item xs={12}>
-                    <GrocerySection />
+                    <GrocerySection setLoader={setLoader} />
                 </Grid>
             </Grid>
         </div>

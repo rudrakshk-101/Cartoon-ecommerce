@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
@@ -9,30 +9,49 @@ const CartItem = ({ item, showButton }) => {
     // Function to remove item from cart (you can customize this as per your requirements)
     console.log("Item removed from cart:", item);
   };
+  
+  const [product,setProduct] = useState({
+    title: 'Title',
+    image: 'Image',
+  });
+
+  useEffect(()=> {
+    xyz();
+  },[])
+
+  const xyz = async() => {
+    const response = await fetch('http://localhost:4500/api/product/findByProductId',{
+      method: 'POST',
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({productId:item.product})  
+    });
+    const data = await response.json();
+    setProduct(data);
+  }
 
   const handleUpdateCartItem = (num) => {
     // Function to update cart item (you can customize this as per your requirements)
-    console.log("Item updated in cart:", item, "New quantity:", item.quantity + num);
+    console.log("Item updated in cart:", item, "New quantity:", item.qty + num);
   };
-
   return (
     <div className=" checkoutAddressOuter p-5 shadow-lg border rounded-md">
       <div className="flex items-center">
         <div className="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem] ">
           <img
             className="w-full h-full object-cover object-top"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-zMXrNvkA8Q13O9RFLBDQXYkZlj40xuUgrg&usqp=CAU" // Hardcoded image URL
+            src={product.image}
             alt=""
           />
         </div>
         <div className="ml-5 space-y-1">
-          <p className="font-semibold">Product Title</p>
-          <p className="opacity-70">Size: xxl, White</p>
-          <p className="opacity-70 mt-2">Seller: goocci</p>
+          {<p className="font-semibold">{product.title}</p>}
+          <p className="opacity-70 mt-2">Seller: {product.brand}</p>
           <div className="flex space-x-2 items-center pt-3">
-            <p className="opacity-50 line-through">₹88000</p>
-            <p className="font-semibold text-lg">₹88 00</p>
-            <p className="text-green-600 font-semibold">10% off</p>
+            <p className="opacity-50 line-through">₹{parseInt(product.price).toFixed(2)}</p>
+            <p className="font-semibold text-lg">₹{parseInt(product.price - (product.price*product.discount/100)).toFixed(2)}</p>
+            <p className="text-green-600 font-semibold">{product.discount}% off</p>
           </div>
         </div>
       </div>
@@ -41,14 +60,14 @@ const CartItem = ({ item, showButton }) => {
           <div className="flex items-center space-x-2 ">
             <IconButton
               onClick={() => handleUpdateCartItem(-1)}
-              disabled={item.quantity <= 1}
+              disabled={item.qty <= 1}
               color="primary"
               aria-label="decrease quantity"
             >
               <RemoveCircleOutlineIcon />
             </IconButton>
 
-            <span className="py-1 px-7 border rounded-sm">{item.quantity}</span>
+            <span className="py-1 px-7 border rounded-sm">{item.qty}</span>
             <IconButton
               onClick={() => handleUpdateCartItem(1)}
               color="primary"

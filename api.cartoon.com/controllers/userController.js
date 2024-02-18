@@ -28,7 +28,7 @@ userController.login = async (req, res) => {
         const validPassword = await bcrypt.compare(password,existingUser.password);
         if(!validPassword) return res.status(404).json({message: "Incorrect password"});
         const token = jwt.sign({_id : existingUser._id},process.env.SECRET_KEY);
-        return res.status(200).json({token});
+        return res.status(200).json({token,userId: existingUser.userId});
     }catch(error)
     {
         console.log(error);
@@ -36,5 +36,37 @@ userController.login = async (req, res) => {
     }
 }
 
-// userController.otherFunctinoality = async (req,res)=> {}
+userController.addToCart = async (req, res) => {
+    const { productId, quantity, userId } = req.body;
+    try {
+        let user = await User.findOne({ userId: userId }).populate('cart.product');
+        if (user) {
+            console.log(productId)
+            const existingProductIndex = user.cart.findIndex(item => item.productId === productId)
+        
+            if (existingProductIndex !== -1) {
+                user.cart[existingProductIndex].qty += quantity;
+            } else {
+                user.cart.push({ product: productId, qty: quantity });
+            }
+            await user.save();
+            return res.status(200).json({ message: "Product added to cart successfully", cart: user.cart });
+        } else {
+            return res.status(404).json({ message: "User not found" });
+        }
+    } catch (error) {
+        console.error("Error adding product to cart:", error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+}
+
+userController.getCart = async (req,res) => {
+    const userId = req.body.userId;
+    const data = await User.findOne({
+        userId: userId
+    });
+    console.log(data.cart);
+    return res.status(200).json(data.cart);
+}
+
 module.exports = userController;

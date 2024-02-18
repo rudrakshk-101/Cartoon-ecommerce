@@ -11,7 +11,7 @@ import image1 from '../assets/Screenshot 2024-02-17 155612.png';
 import image2 from '../assets/Screenshot 2024-02-17 155819.png';
 // import Card3d from './3dcard';
 
-const LoginRegister = () => {
+const LoginRegister = ({setLoader}) => {
   const [isLoginMode, setIsLoginMode] = useState(true);
 
   const toggleMode = () => {
@@ -69,12 +69,12 @@ const LoginRegister = () => {
                   <div className="card-3d-wrapper">
                     <div className="card-front">
                       <div className="pricing-wrap">
-                        <SignIn />
+                        <SignIn setLoader={setLoader} />
                       </div>
                     </div>
                     <div className="card-back">
                       <div className="pricing-wrap">
-                        <SignUp />
+                        <SignUp setLoader={setLoader}/>
                       </div>
                     </div>
                   </div>

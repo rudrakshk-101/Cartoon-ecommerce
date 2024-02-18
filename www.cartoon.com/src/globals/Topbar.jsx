@@ -19,6 +19,10 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import logo from '../assets/pnglogo.png';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import CheckroomIcon from '@mui/icons-material/Checkroom';
+import RecommendIcon from '@mui/icons-material/Recommend';
 
 const Topbar = () => {
   const theme = useTheme();
@@ -136,7 +140,7 @@ const Topbar = () => {
   to="/cart"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
-  <AddIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
+  <ShoppingCartIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
   <span style={{ marginLeft: '0.5rem' }}>Cart</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
@@ -144,7 +148,7 @@ const Topbar = () => {
   to="/"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
-  <Inventory2Icon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
+  <RecommendIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
   <span style={{ marginLeft: '0.5rem' }}>Recommendations</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
@@ -152,7 +156,7 @@ const Topbar = () => {
   to="/bar"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
-  <BarChartOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
+  <AutoStoriesIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
   <span style={{ marginLeft: '0.5rem' }}>Books</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem
@@ -160,7 +164,7 @@ const Topbar = () => {
   to="/pie"
   sx={{ color: "inherit", textDecoration: "none", mr: 3, display: 'flex', alignItems: 'center' }}
 >
-  <PieChartOutlineOutlinedIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
+  <CheckroomIcon sx={{ mr: 1 }} /> {/* Add margin to the right of the icon */}
   <span style={{ marginLeft: '0.5rem' }}>Apparels</span> {/* Add a margin to the left of the text */}
 </MenuItem>
 <MenuItem

@@ -29,7 +29,7 @@ function Copyright(props) {
 }
 const defaultTheme = createTheme();
 
-export default function SignUp() {
+export default function SignUp({setLoader}) {
     const navigate = useNavigate();
 
 
@@ -41,13 +41,14 @@ export default function SignUp() {
 
     const handleRegister =async ()=>{
       alert('Successfully registered');
-
+      setLoader(true);
         let response = await fetch('http://localhost:4500/api/user/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),
     });
     let data = await response.json();
+    setLoader(true);  
     navigate('/example');
     }
   return (

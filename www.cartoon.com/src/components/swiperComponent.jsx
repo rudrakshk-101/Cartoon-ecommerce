@@ -43,7 +43,7 @@ const Carousel = () => {
       <Slider {...settings}>
         <div className="slide-content">
           <h2>Slide 1</h2>
-          <button onClick={() => console.log('Button clicked on Slide 1')}>Click Me</button>
+          <button onClick={() => ('Button clicked on Slide 1')}>Click Me</button>
         </div>
         <div className="slide-content">
           <h2>Slide 2</h2>

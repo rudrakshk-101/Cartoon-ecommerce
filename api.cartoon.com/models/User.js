@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    default:() => new mongoose.Types.ObjectId, // Generates new ObjectId
-    required: true
+    default:() => new mongoose.Types.ObjectId, 
   },
   email: {
     type: String,
@@ -56,11 +55,10 @@ const userSchema = new mongoose.Schema({
     {
       product: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product' // Reference to the Product model
+        ref: 'Product' 
       },
       qty: {
-        type: Number,
-        default: 1
+        type: Number
       }
     }
   ],
