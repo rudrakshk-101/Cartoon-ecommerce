@@ -16,6 +16,7 @@ import {initializeApp} from 'firebase/app';
 import firebaseConfig from './firebase';
 import CheckoutPage from "./pages/Checkout";
 import AddDeliveryAddressForm from './pages/AddAddress';
+import Loader from "./components/Loader";
 import InvoiceGenerator from './pages/invoicePage';
 
 function App() {
@@ -29,7 +30,6 @@ function App() {
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   
   return (
-
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -47,7 +47,6 @@ function App() {
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/address" element={<AddDeliveryAddressForm />} />
                 <Route path="/invoice" element={<InvoiceGenerator />} />
-
             </Routes>
           </main>
         </div>
