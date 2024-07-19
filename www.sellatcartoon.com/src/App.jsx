@@ -23,7 +23,7 @@ const App = () => {
   const location = useLocation();
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
-  const visibleRoutes = ['/line','/pie','/bar','/addProduct','/myProducts','/dashboard','/calendar'];
+  const visibleRoutes = ['/','/line','/pie','/bar','/addProduct','/myProducts','/dashboard','/calendar'];
   const isRouteVisible = (route) => visibleRoutes.includes(route);
   return (
      <ColorModeContext.Provider value={colorMode}>
@@ -33,6 +33,7 @@ const App = () => {
           <main className="content">
           {isRouteVisible(location.pathname) && <Topbar />}
       <Routes>
+        <Route path='/' element={<Dashboard />}/>
         <Route path='/dashboard' element={<Dashboard />}/>
         <Route path='/addProduct' element={<AddProduct />}/>
         <Route path='/login' element={<Login />}/>
